@@ -1,12 +1,13 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import * as AOS from 'aos';
 import {NgForOf} from '@angular/common';
+import {NavbarComponent} from "../navbar/navbar.component";
 @Component({
-  selector: 'app-header-home',
+  selector: 'app-sub-header',
   standalone: true,
-  imports: [
-    NgForOf
-  ],
+    imports: [
+        NgForOf
+    ],
   templateUrl: './header-home.component.html',
   styleUrl: './header-home.component.scss',
 

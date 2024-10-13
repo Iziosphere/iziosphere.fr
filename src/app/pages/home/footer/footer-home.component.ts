@@ -1,7 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'app-footer-home',
+  selector: 'app-footer',
   standalone: true,
   imports: [],
   templateUrl: './footer-home.component.html',
