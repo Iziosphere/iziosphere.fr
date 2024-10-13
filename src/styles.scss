@@ -1,17 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body{
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   scroll-behavior: smooth;
 }
-$enable-css-grid: true;
-$enable-grid-classes: true;
-@import "../node_modules/bootstrap/scss/bootstrap";
 
 
 
-// color
+
+
+
+
+
+@import "generic-position";
 

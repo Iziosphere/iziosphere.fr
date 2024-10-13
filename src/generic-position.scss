@@ -1,0 +1,19 @@
+@media (max-width: 992px) {
+
+
+  .position-lg-inherit,
+  .position-md-inherit,
+  .position-sm-inherit,
+  .position-inherit {
+    position: inherit !important;
+  }
+
+  .translate-lg-none,
+  .translate-md-none,
+  .translate-sm-none,
+  .translate-none {
+    transform: none !important;
+  }
+}
+
+
