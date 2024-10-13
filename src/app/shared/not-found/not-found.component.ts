@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import {FooterHomeComponent} from "../home/footer/footer-home.component";
-import {NavbarComponent} from "../home/navbar/navbar.component";
+import {FooterHomeComponent} from "../footer/footer-home.component";
+import {NavbarComponent} from "../header/navbar/navbar.component";
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-not-found',
   standalone: true,
   imports: [
     FooterHomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    RouterLink
   ],
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.scss'

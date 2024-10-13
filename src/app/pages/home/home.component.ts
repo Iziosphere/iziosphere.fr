@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {FooterHomeComponent} from "./footer/footer-home.component";
-import {HeaderHomeComponent} from "./sub-header/header-home.component";
+import {FooterHomeComponent} from "../../shared/footer/footer-home.component";
+import {HeroSectionComponent} from "../../shared/header/hero-section/hero-section.component";
 import {Section1HomeComponent} from "./section-1-home/section-1-home.component";
 import {Section2HomeComponent} from "./section-2-home/section-2-home.component";
 import {Section3HomeComponent} from "./section-3-home/section-3-home.component";
@@ -14,7 +14,7 @@ import {Section7HomeComponent} from "./section-7-home/section-7-home.component";
   standalone: true,
     imports: [
         FooterHomeComponent,
-        HeaderHomeComponent,
+        HeroSectionComponent,
         Section1HomeComponent,
         Section2HomeComponent,
         Section3HomeComponent,

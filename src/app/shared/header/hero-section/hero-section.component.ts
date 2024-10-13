@@ -3,16 +3,16 @@ import * as AOS from 'aos';
 import {NgForOf} from '@angular/common';
 import {NavbarComponent} from "../navbar/navbar.component";
 @Component({
-  selector: 'app-sub-header',
+  selector: 'app-hero-section',
   standalone: true,
     imports: [
         NgForOf
     ],
-  templateUrl: './header-home.component.html',
-  styleUrl: './header-home.component.scss',
+  templateUrl: './hero-section.component.html',
+  styleUrl: './hero-section.component.scss',
 
 })
-export class HeaderHomeComponent {
+export class HeroSectionComponent {
   categories = [
     {
       title: 'Création de Sites Web',
