@@ -4,22 +4,20 @@
   font-size: 18px;
   font-weight: bold;
   color: white;
-  background-color: #dc3545; /* Rouge danger */
+  background-color: var(--bs-btn-bg);
   border: none;
   border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4); /* Ombre douce */
+  box-shadow: 0 4px 15px rgba(var(--bs-btn-focus-shadow-rgb), 0.4);
   text-transform: uppercase;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
 }
 
 .btn-custom:hover {
-  background-color: #c82333; /* Couleur plus foncée au survol */
-  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.6); /* Augmentation de l'ombre */
-  transform: translateY(-3px); /* Léger mouvement vers le haut */
+  background-color: var(--bs-btn-hover-bg);
+  box-shadow: 0 6px 20px rgba(var(--bs-btn-focus-shadow-rgb), 0.6);
+  transform: translateY(-3px);
 }
-
-
 
 .scrolling-tools {
   width: 100%;

@@ -1,45 +1,36 @@
-  <div class="position-relative"
-       style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('header.webp'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <div class="container h-100 d-flex flex-column justify-content-center text-white"
-         style="min-height: 100vh;">
-      <div class="text-center text-md-start">
+<div class="position-relative"
+  style="margin-bottom: 8.5rem;background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('header.webp'); background-size: cover; background-position: center; background-repeat: no-repeat">
+  <div class="container h-100 d-flex flex-column justify-content-center text-white" style="min-height: 100vh;">
+    <div class="text-center text-md-start">
 
-        <h1 class="display-1 fw-bold">La maîtrise digitale au service de vos ambitions</h1>
-        <p class="lead">Des solutions innovantes pour propulser votre réussite en ligne</p>
-        <p>
-          <a href="" class="btn btn-danger btn-lg rounded-0 text-center" aria-label="Discover our services">Découvrir
-            nos services</a>
-        </p>
-      </div>
-    </div>
-    <div class="position-absolute position-lg-inherit bottom-0 w-100 z-3">
-
-      <div class="container">
-        <div class="row text-center">
-          @for (category of categories; track category) {
-            <div class="col-6 col-md-2 py-4 service bg-light">
-
-              <a href="{{ category.link }}" class="link-dark text-decoration-none h-100"
-                 [attr.aria-label]="category.title">
-                <div class="h-50">
-                  <i class="fas {{ category.icon }} fa-2x text-danger"></i>
-                </div>
-                <div class="mt-2 fw-semibold h-50 col-10 mx-auto">{{ category.title }}</div>
-              </a>
-            </div>
-          }
-        </div>
-      </div>
-
-
+      <h1 class="display-1 fw-bold">La maîtrise digitale au service de vos ambitions</h1>
+      <p class="lead">Des solutions innovantes pour propulser votre réussite en ligne</p>
+      <p>
+        <a href="" class="btn btn-primary btn-lg rounded-0 text-center" aria-label="Discover our services">Découvrir
+          nos services</a>
+      </p>
     </div>
   </div>
+  <div class="position-absolute position-lg-inherit bottom-0 w-100 z-3 mb-3">
 
+    <div class="container">
+      <div class="row text-center">
+        @for (category of categories; track category) {
+        <div class="col-6 col-md-2 py-4 service bg-light">
 
-    <div class="text-bg-danger text-center pb-5 translate-lg-none"
-             style="padding-top: 6rem; transform: translateY(-25%)">
-        <p class="mb-0">Explorez nos solutions complètes pour booster votre activité ! <a href=""
-                                                                                          class="btn btn-outline-light rounded-0 ms-2"
-                                                                                          aria-label="Discover more">Découvrir
-            plus</a></p>
+          <a href="{{ category.link }}" class="link-dark text-decoration-none h-100" [attr.aria-label]="category.title">
+            <div class="h-50">
+              <i class="fas {{ category.icon }} fa-2x text-primary"></i>
+            </div>
+            <div class="mt-2 fw-semibold h-50 col-10 mx-auto">{{ category.title }}</div>
+          </a>
+        </div>
+        }
+      </div>
     </div>
+  </div>
+  <div class="position-absolute top-100 w-100 text-bg-primary text-center pb-5" style="padding-top: 6rem; transform: translateY(-25%)">
+    <p class="mb-0">Explorez nos solutions complètes pour booster votre activité ! <a href="#"
+        class="btn btn-outline-light rounded-0 ms-2" aria-label="Discover more">Découvrir plus</a></p>
+  </div>
+</div>

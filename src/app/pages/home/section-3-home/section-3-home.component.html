@@ -5,7 +5,7 @@
     <div class="row text-center">
       @for(stat of stats; track stat){
         <div class="col-md-3 py-3">
-          <i class="mb-2 {{ stat.icon }} fa-3x text-danger"></i>
+          <i class="mb-2 {{ stat.icon }} fa-3x text-primary"></i>
           <h3 class="display-5">
             <span [attr.data-target]="stat.value" #counter>0</span>
           </h3>

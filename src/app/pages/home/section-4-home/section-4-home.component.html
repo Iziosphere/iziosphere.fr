@@ -1,11 +1,11 @@
-<section class="bg-light" aria-label="Section des actualités et publications">
+<section class="bg-light">
   <div class="container py-5">
     <div class="row">
       <div class="col-12 col-md-6 col-lg-3 mb-4 align-self-center align-self-lg-start">
         <div class="text-center text-md-start text-lg-start">
           <h2 class="fw-bold mb-3">Actualités et Publications</h2>
           <p class="text-muted mb-3">Les dernières nouvelles sur nos activités récentes et initiatives.</p>
-          <a href="#" class="btn btn-outline-danger rounded-0" aria-label="Voir plus d'actualités">Voir plus d'actualités</a>
+          <a href="#" class="btn btn-outline-primary rounded-0" aria-label="Voir plus d'actualités">Voir plus d'actualités</a>
         </div>
       </div>
 
@@ -14,12 +14,12 @@
           <div class="card h-100">
             <img [src]="article.image" class="card-img-top" [alt]="article.title" aria-hidden="true">
             <div class="card-body position-relative d-flex flex-column justify-content-between">
-              <span class="text-bg-danger py-1 px-2 position-absolute top-0 translate-middle-y">{{article.date}}</span>
+              <span class="text-bg-primary py-1 px-2 position-absolute top-0 translate-middle-y">{{article.date}}</span>
               <div class="my-3">
                 <p class="card-text m-0 text-muted">Dans {{ article.category }}</p>
                 <h5 class="card-title">{{ article.title }}</h5>
               </div>
-              <a [href]="article.link" class="link-dark text-decoration-none" [attr.aria-label]="article +article.title">Lire la suite <i class="fas fa-arrow-right"></i></a>
+              <a [href]="article.link" class="link-dark text-decoration-none stretched-link" [attr.aria-label]="article +article.title">Lire la suite <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
         </div>

@@ -2,9 +2,9 @@
 .service{
   &:hover{
     background: var(--bs-white);
-    transform: scale(1.05);
+    transform: scale(1.125);
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
 
   }
-  transition: transform 1s;
+  transition: transform .5s;
 }
