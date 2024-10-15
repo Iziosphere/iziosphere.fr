@@ -18,7 +18,6 @@ import {BreadcrumbComponent} from "./breadcrumb/breadcrumb.component";
 export class HeaderComponent implements OnInit {
   isHomeRoute: boolean = false;
 
-
   constructor(private router: Router) {}
 
   ngOnInit() {

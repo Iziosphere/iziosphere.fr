@@ -4,8 +4,12 @@
         <p class="display-5 fw-bold m-0">Header title</p>
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" data-bs-theme="dark">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a class="link-light text-decoration-none" href="/">Home</a></li>
-                <li class="breadcrumb-item" aria-current="page">Library</li>
+                <li class="breadcrumb-item"><a class="link-light text-decoration-none" href="/" [routerLink]="['/']">Home</a></li>
+                @for (b of breadcrumbs; track b)
+                {
+                    <li class="breadcrumb-item"><a class="link-light text-decoration-none" href="b.link" [routerLink]="[b.link]">{{b.name}}</a></li>
+                }
+                <!-- <li class="breadcrumb-item" aria-current="page">Library</li> -->
             </ol>
         </nav>
     </div>
