@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import {HomeComponent} from "./pages/home/home.component";
-import {NotFoundComponent} from "./shared/not-found/not-found.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { NotFoundComponent } from "./shared/not-found/not-found.component";
+import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
 
@@ -8,15 +9,18 @@ export const routes: Routes = [
     {
         path: '',
         component: HomeComponent,
-        data:{
+        data: {
             title: 'Home'
         }
     },
-    // {
-    //     path: 'login',
-    //     component: LoginComponent,
-    //     canActivate: [DisconnectedGuard]
-    // },
+    {
+        path: 'login',
+        component: LoginComponent,
+        data: {
+            title: 'Login'
+        }
+        // canActivate: [DisconnectedGuard]
+    },
     // {
     //     path: 'register',
     //     component: RegisterComponent,
@@ -25,8 +29,8 @@ export const routes: Routes = [
     {
         path: '**',
         component: NotFoundComponent,
-      data:{
-          title: 'Not Found'
-      }
+        data: {
+            title: 'Not Found'
+        }
     }
 ];

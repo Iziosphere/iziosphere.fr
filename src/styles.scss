@@ -9,6 +9,12 @@
   --bs-primary-rgb: 32, 82, 146;
   --bs-dark: #191C23;
   --bs-dark-rgb: 25, 28, 35;
+  
+  --bs-link-color: var(--bs-primary);
+  --bs-link-color-rgb: var(--bs-primary-rgb);
+  --bs-link-decoration: underline;
+  --bs-link-hover-color: #0A58CA;
+  --bs-link-hover-color-rgb: 10, 88, 202;
 }
 
 html {
@@ -58,6 +64,11 @@ body {
 
 .dropdown-menu {
   --bs-dropdown-link-active-bg: var(--bs-primary);
+}
+
+.form-check-input:checked {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
 }
 
 @import "generic-position";
