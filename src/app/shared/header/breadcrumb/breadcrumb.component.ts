@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { filter } from 'rxjs/operators';  // Import manquant
+import {Component, OnInit} from '@angular/core';
+import {Router, RouterLink} from '@angular/router';
+import {CommonModule} from '@angular/common';
 
 export interface Breadcrumb {
   name: string;
@@ -21,50 +20,53 @@ export interface Breadcrumb {
 export class BreadcrumbComponent implements OnInit {
   breadcrumbs: Breadcrumb[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
+    this.updateBreadcrumbs();
+
     this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        if (event instanceof NavigationEnd) {
-          const url = event.url;
-          const urlSegments = url.split('/').filter(segment => segment);
-
-          // Reset breadcrumbs
-          this.breadcrumbs = [];
-
-          for (let index = 0; index < urlSegments.length; index++) {
-            const segment = urlSegments[index];
-            const link = '/' + urlSegments.slice(0, index + 1).join('/');
-
-            // Check if the route exists in the router configuration
-            if (this.routeExists(link)) {
-              const name = segment.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
-              this.breadcrumbs.push({
-                name,
-                link
-              });
-            } else {
-              // If a 404 is encountered, stop further processing
-              this.breadcrumbs.push({
-                name: '404 Page Not Found',
-                link: '/404'
-              });
-              break; // Stop the loop once we detect a 404
-            }
-          }
-
-          console.log(this.breadcrumbs);
-        }
+      .subscribe(() => {
+        this.updateBreadcrumbs();
       });
   }
 
-  // Method to check if a route exists in the router configuration
-  routeExists(path: string): boolean {
-    return this.router.config.some(route => {
-      const routePath = '/' + (route.path || '');
-      return routePath === path;
+  private updateBreadcrumbs() {
+    const url = this.router.url;
+
+    if (!this.routeExists(url)) {
+      this.breadcrumbs = [
+        {name: 'Home', link: '/'},
+        {name: '404 Page Not Found', link: url}
+      ];
+      return;
+    }
+
+    const urlSegments = url.split('/').filter(segment => segment);
+    console.log("segment" + urlSegments);
+
+    this.breadcrumbs = [{name: 'Home', link: '/'}];
+
+    let accumulatedLink = '';
+
+    for (const segment of urlSegments) {
+      accumulatedLink += '/' + segment;
+      const name = segment
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, char => char.toUpperCase());
+      this.breadcrumbs.push({name, link: accumulatedLink});
+    }
+  }
+
+
+  private routeExists(url: string): boolean {
+    return this.router.config.some(config => {
+      const path = config.path?.split('/').filter(segment => segment);
+      const urlSegments = url.split('/').filter(segment => segment);
+      return JSON.stringify(path) === JSON.stringify(urlSegments);
     });
   }
+
+
 }
