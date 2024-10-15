@@ -5,7 +5,7 @@
 
 :root,
 [data-bs-theme=light] {
-  --bs-primary: #B40000;
+  --bs-primary: #205292;
   --bs-primary-rgb: 32, 82, 146;
   --bs-dark: #191C23;
   --bs-dark-rgb: 25, 28, 35;
@@ -51,5 +51,8 @@ body {
   --bs-gradient: none; /* Pas de dégradé */
 }
 
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: var(--bs-primary);
+}
 
 @import "generic-position";
