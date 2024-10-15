@@ -10,23 +10,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Étape 1 : Cloner le dépôt
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # Étape 2 : Installer Node.js et npm (pour Angular)
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.19'
 
+      # Étape 3 : Installer les dépendances npm
       - name: Install dependencies
         run: npm install
 
+      # Étape 4 : Construire le projet Angular
       - name: Build Angular project
         run: npm run build
 
+      # Étape 5 : Installer sshpass pour utiliser un mot de passe SSH
       - name: Install sshpass
         run: sudo apt-get install -y sshpass
 
+      # Étape 6 : Ajouter le serveur à known_hosts
+      - name: Add server to known_hosts
+        run: |
+          ssh-keyscan iziosphere.fr >> ~/.ssh/known_hosts
+
+      # Étape 7 : Déployer sur le serveur avec suppression des fichiers existants
       - name: Deploy to remote server
         env:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
