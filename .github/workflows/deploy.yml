@@ -18,20 +18,28 @@ jobs:
         with:
           node-version: '18.19'
 
-      - name: Install dependencies && Build Angular project
+      - name: Install dependencies & Build Angular project
         run: |
           npm install
           npm run build
 
-    outputs:
-      build-path: dist/iziosphere/browser/
-
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: angular-build
+          path: dist/iziosphere/browser/
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: angular-build
+          path: dist/iziosphere/browser/
+
       - name: Install sshpass
         run: sudo apt-get install -y sshpass
 
