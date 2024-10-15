@@ -11,6 +11,11 @@
   --bs-dark-rgb: 25, 28, 35;
 }
 
+html {
+  scrollbar-color: var(--bs-dark) var(--bs-body-bg);
+  scrollbar-width: thin;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
