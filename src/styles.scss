@@ -15,6 +15,13 @@
   --bs-link-decoration: underline;
   --bs-link-hover-color: #0A58CA;
   --bs-link-hover-color-rgb: 10, 88, 202;
+
+  --bs-border-radius: 0;
+  --bs-border-radius-sm: 0;
+  --bs-border-radius-lg: 0;
+  --bs-border-radius-xl: 0;
+  --bs-border-radius-xxl: 0;
+  --bs-border-radius-2xl: 0;
 }
 
 html {
@@ -70,5 +77,6 @@ body {
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
 }
+
 
 @import "generic-position";
