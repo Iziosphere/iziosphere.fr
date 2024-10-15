@@ -1,71 +1,65 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow p-3" aria-label="Offcanvas navbar large" style="height: 90px;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow p-3" aria-label="Offcanvas navbar large">
   <div class="container">
-
-    <!-- Burger Menu Button -->
-    <button aria-label="Toggle navigation" class="navbar-toggler border-0 me-3" type="button" data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+    <button aria-label="burger-menu" class="navbar-toggler border-0 me-3" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Brand Logo and Name -->
-    <a class="navbar-brand" href="#" aria-label="Homepage">
-      <img src="icon.svg" class="me-2" alt="Iziosphere" style="width: 50px">
-      Iziosphere
-    </a>
-
-    <!-- Offcanvas Menu for Mobile -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+    <a class="navbar-brand" href="#" aria-label="Homepage"> <img src="icon.svg" class="me-2" alt="logo"
+                                                                 style="width: 50px">
+      Iziosphere</a>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar2"
+         aria-labelledby="offcanvasNavbar2Label">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Menu</h5>
+        <h5 class="offcanvas-title" id="offcanvasLabel">Menu</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
 
       <div class="offcanvas-body">
-        <!-- Navbar Links -->
-        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+        <ul
+          class="navbar-nav justify-content-center flex-grow-1 pe-3 position-absolute position-lg-inherit top-50 start-50 translate-middle translate-lg-none">
           <li class="nav-item">
             <a class="nav-link" href="#" aria-label="Go to Home"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Home</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" aria-label="Go to Page"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Page</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Page</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" aria-label="Go to Departments"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Departments</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Departments</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" aria-label="Go to Events"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Events</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Events</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" aria-label="Go to Link"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Link</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Link</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" aria-label="Go to News"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>News</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>News</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" aria-label="Go to Portfolio"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Portfolio</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Portfolio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" aria-label="Go to Contact"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Contact</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Contact</a>
           </li>
         </ul>
       </div>
     </div>
-
     <div class="dropdown">
-      <button aria-label="Open profile menu" class="btn btn-lg d-lg-none d-block" type="button"
-        data-bs-toggle="dropdown" aria-expanded="false">
+      <button aria-label="profile" class="btn btn-lg d-lg-none d-block" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
         <i class="far fa-user"></i>
       </button>
-      <button class="btn btn-outline-dark rounded-0 d-none d-lg-block" type="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+      <button class="btn btn-outline-dark rounded-0 d-none d-lg-block" type="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
         My Account
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
@@ -73,6 +67,5 @@
         <li><a class="dropdown-item" href="#" aria-label="Register">Register</a></li>
       </ul>
     </div>
-
   </div>
 </nav>

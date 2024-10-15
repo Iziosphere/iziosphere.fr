@@ -3,15 +3,14 @@ import {HomeComponent} from "./pages/home/home.component";
 import {NotFoundComponent} from "./shared/not-found/not-found.component";
 
 export const routes: Routes = [
-    {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-    },
+
 
     {
-        path: 'home',
-        component: HomeComponent
+        path: '',
+        component: HomeComponent,
+        data:{
+            title: 'Home'
+        }
     },
     // {
     //     path: 'login',
@@ -25,6 +24,9 @@ export const routes: Routes = [
     // },
     {
         path: '**',
-        component: NotFoundComponent
+        component: NotFoundComponent,
+      data:{
+          title: 'Not Found'
+      }
     }
 ];

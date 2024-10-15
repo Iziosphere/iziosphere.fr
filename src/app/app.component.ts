@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {initFlowbite} from 'flowbite';
 import {MistralService} from './service/mistral.service';
 import {FormsModule} from '@angular/forms';
@@ -16,6 +16,8 @@ import {FooterHomeComponent} from './shared/footer/footer-home.component';
 import {NotFoundComponent} from "./shared/not-found/not-found.component";
 import {NavbarComponent} from "./shared/header/navbar/navbar.component";
 import {HeaderComponent} from './shared/header/header.component';
+import {filter, map} from 'rxjs';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -32,11 +34,31 @@ export class AppComponent implements OnInit {
   waitingForResponse = false;
 
 
-  constructor(private mistralService: MistralService) {
+  constructor(private mistralService: MistralService,private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title) {
   }
 
   ngOnInit() {
-    initFlowbite();
+    this.setTitleOnPage();
+  }
+
+  setTitleOnPage(){
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => {
+          let route = this.activatedRoute.firstChild;
+          while (route?.firstChild) {
+            route = route.firstChild;
+          }
+          return route;
+        }),
+        map(route => route?.snapshot.data)
+      )
+      .subscribe(data => {
+        if (data) {
+          this.titleService.setTitle("Iziosphere - " + data['title'] || 'Iziosphere');
+        }
+      });
   }
 
   sendMessage() {
