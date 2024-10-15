@@ -2,14 +2,16 @@ import {Component, OnInit} from '@angular/core';
 import {HeroSectionComponent} from "./hero-section/hero-section.component";
 import {NavigationEnd, Router} from '@angular/router';
 import {NavbarComponent} from './navbar/navbar.component';
+import {BreadcrumbComponent} from "./breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     HeroSectionComponent,
-    NavbarComponent
-  ],
+    NavbarComponent,
+    BreadcrumbComponent
+],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
