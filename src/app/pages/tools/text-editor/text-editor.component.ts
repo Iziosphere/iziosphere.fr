@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {QuillModule} from 'ngx-quill';
-import {FormsModule} from '@angular/forms';
-import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { QuillModule } from 'ngx-quill';
+import { FormsModule } from '@angular/forms';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-text-editor',
@@ -19,14 +19,14 @@ export class TextEditorComponent {
 
   modules = {
     toolbar: [
-      ['bold', 'italic', 'underline', 'strike'], // Added 'strike'
+      ['bold', 'italic', 'underline', 'strike'],
       [{ header: [1, 2, 3, false] }],
       [{ list: 'ordered' }, { list: 'bullet' }],
-      ['blockquote', 'code-block'], // Added 'blockquote' and 'code-block'
-      ['link', 'image', 'video'], // Added 'video'
+      ['blockquote', 'code-block'],
+      ['link', 'image', 'video'],
       [{ align: [] }], // Alignment options
-      [{ color: [] }, { background: [] }], // Color options
-      ['clean'], // Remove formatting
+      [{ color: [] }, { background: [] }],
+      ['clean'],
     ],
   };
 
@@ -37,4 +37,7 @@ export class TextEditorComponent {
     this.sanitizedContent = this.sanitizer.bypassSecurityTrustHtml(this.content);
   }
 
+  saveContent() {
+    console.log(this.content);
+  }
 }

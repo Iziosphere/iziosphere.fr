@@ -12,7 +12,7 @@ export interface Breadcrumb {
   standalone: true,
   imports: [
     RouterLink,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss']
@@ -44,7 +44,6 @@ export class BreadcrumbComponent implements OnInit {
     }
 
     const urlSegments = url.split('/').filter(segment => segment);
-    console.log("segment" + urlSegments);
 
     this.breadcrumbs = [{name: 'Home', link: '/'}];
 

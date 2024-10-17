@@ -6,5 +6,7 @@
 >
 </quill-editor>
 
+<button class="btn btn-primary" (click)="saveContent()">Save</button>
 <!-- Rendered HTML content with class for styling -->
-<div class="rendered-content" [innerHTML]="sanitizedContent"></div>
+<div class="rendered-content ql-editor" [innerHTML]="sanitizedContent"></div>
+
