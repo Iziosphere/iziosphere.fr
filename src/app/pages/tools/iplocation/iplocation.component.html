@@ -1,0 +1,74 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header text-center">
+      <h2>🌐 Informations sur une adresse IP</h2>
+    </div>
+    <div class="card-body">
+
+      <div class="mb-4">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Entrez une adresse IP (laissez vide pour votre IP)"
+                 [(ngModel)]="ipAddress">
+          <div class="input-group-append">
+            <button class="btn btn-primary" (click)="getIpInformation()">Rechercher</button>
+          </div>
+        </div>
+      </div>
+
+      @if (ipData) {
+        <div class="row">
+          <!-- Colonne des informations IP -->
+          <div class="col-md-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">💻 <strong>Adresse IP :</strong> {{ ipData.ip }}</li>
+              <li class="list-group-item">🗺️ <strong>Continent :</strong> {{ ipData.continent }}</li>
+              <li class="list-group-item">🌍 <strong>Pays :</strong> {{ ipData.country }} {{ ipData.flag.emoji }}</li>
+              <li class="list-group-item">🏙️ <strong>Ville :</strong> {{ ipData.city }}</li>
+              <li class="list-group-item">🌐 <strong>Région :</strong> {{ ipData.region }}</li>
+              <li class="list-group-item">📍 <strong>Coordonnées :</strong> Latitude {{ ipData.latitude }},
+                Longitude {{ ipData.longitude }}
+              </li>
+              <li class="list-group-item">🕒 <strong>Fuseau horaire :</strong> {{ ipData.timezone.utc }}
+                ({{ ipData.timezone.id }})
+              </li>
+              <li class="list-group-item">📞 <strong>Indicatif téléphonique :</strong> +{{ ipData.calling_code }}</li>
+              <li class="list-group-item">🏢 <strong>Fournisseur d'accès :</strong> {{ ipData.connection.isp }}</li>
+              <li class="list-group-item">📅 <strong>Heure locale
+                :</strong> {{ ipData.timezone.current_time | date: 'medium' }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h3>🖥️ Votre navigateur</h3>
+            <p><strong>Agent utilisateur :</strong> {{ userAgent }}</p>
+            <p><strong>Résolution d'écran :</strong> {{ screenResolution }}</p>
+            <h3 class="mt-4">🗺️ Carte de votre emplacement</h3>
+            <div class="embed-responsive embed-responsive-4by3">
+              <iframe
+                class="embed-responsive-item"
+                [src]="mapUrl"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      }
+
+
+      @if (!ipData && !loading) {
+        <div class="text-center mt-4">
+          <p>Aucune donnée à afficher. Entrez une adresse IP et cliquez sur "Rechercher".</p>
+        </div>
+      }
+      @if (loading) {
+        <div *ngIf="loading" class="text-center mt-4">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Chargement...</span>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+</div>

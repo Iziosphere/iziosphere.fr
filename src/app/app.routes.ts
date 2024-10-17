@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from "./pages/home/home.component";
 import { NotFoundComponent } from "./shared/not-found/not-found.component";
 import { LoginComponent } from './pages/login/login.component';
+import {IplocationComponent} from './pages/tools/iplocation/iplocation.component';
 
 export const routes: Routes = [
 
@@ -21,6 +22,13 @@ export const routes: Routes = [
         }
         // canActivate: [DisconnectedGuard]
     },
+  {
+    path: 'tools/ip-location',
+    component: IplocationComponent,
+    data: {
+      title: 'Ip Location'
+    }
+  },
     // {
     //     path: 'register',
     //     component: RegisterComponent,
