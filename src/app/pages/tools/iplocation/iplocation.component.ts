@@ -23,6 +23,7 @@ export class IplocationComponent implements OnInit {
   mapUrl!: SafeResourceUrl;
   ipAddress: string = '';
   loading: boolean = false;
+  errorMessage: string = '';
 
   constructor(private ipDataService: IpDataService, private sanitizer: DomSanitizer) { }
 
@@ -34,15 +35,22 @@ export class IplocationComponent implements OnInit {
 
   getIpInformation(): void {
     this.loading = true;
+    this.errorMessage = '';
     this.ipDataService.getIpData(this.ipAddress).subscribe({
       next: (data: IpData) => {
-        this.ipData = data;
-        this.setMapUrl();
         this.loading = false;
+        if (data.success) {
+          this.ipData = data;
+          this.setMapUrl();
+        } else {
+          this.ipData = null;
+          this.errorMessage = data.message || 'Une erreur est survenue.';
+        }
       },
       error: (error: any) => {
         this.loading = false;
         this.ipData= null;
+        this.errorMessage = 'Une erreur réseau est survenue.';
       }
     });
     }

@@ -1,6 +1,7 @@
 export interface IpData {
   ip: string;
   success: boolean;
+  message?: string;
   type: string;
   continent: string;
   continent_code: string;

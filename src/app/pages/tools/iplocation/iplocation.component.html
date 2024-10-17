@@ -8,7 +8,7 @@
       <div class="mb-4">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Entrez une adresse IP (laissez vide pour votre IP)"
-                 [(ngModel)]="ipAddress">
+                 [(ngModel)]="ipAddress" (keydown.enter)="getIpInformation()">
           <div class="input-group-append">
             <button class="btn btn-primary" (click)="getIpInformation()">Rechercher</button>
           </div>
@@ -55,8 +55,12 @@
         </div>
       }
 
-
-      @if (!ipData && !loading) {
+      @if (errorMessage) {
+        <div class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
+      }
+      @if (!ipData && !loading && !errorMessage) {
         <div class="text-center mt-4">
           <p>Aucune donnée à afficher. Entrez une adresse IP et cliquez sur "Rechercher".</p>
         </div>
