@@ -1,0 +1,10 @@
+<quill-editor
+  [modules]="modules"
+  (onContentChanged)="onContentChanged($event)"
+  [styles]="{ height: '300px', width: '100%' }"
+  [(ngModel)]="content"
+>
+</quill-editor>
+
+<!-- Rendered HTML content with class for styling -->
+<div class="rendered-content" [innerHTML]="sanitizedContent"></div>

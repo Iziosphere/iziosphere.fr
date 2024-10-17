@@ -3,6 +3,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { NotFoundComponent } from "./shared/not-found/not-found.component";
 import { LoginComponent } from './pages/login/login.component';
 import {IplocationComponent} from './pages/tools/iplocation/iplocation.component';
+import {TextEditorComponent} from './pages/tools/text-editor/text-editor.component';
 
 export const routes: Routes = [
 
@@ -29,7 +30,13 @@ export const routes: Routes = [
       title: 'Ip Location'
     }
   },
-    // {
+  {
+    path: 'tools/text-editor',
+    component: TextEditorComponent,
+    data: {
+      title: 'text editor'
+    }
+  },    // {
     //     path: 'register',
     //     component: RegisterComponent,
     //     canActivate: [DisconnectedGuard]

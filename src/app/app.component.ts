@@ -18,11 +18,12 @@ import {NavbarComponent} from "./shared/header/navbar/navbar.component";
 import {HeaderComponent} from './shared/header/header.component';
 import {filter, map} from 'rxjs';
 import {Title} from '@angular/platform-browser';
+import {CookieConsentComponent} from './shared/cookie-consent/cookie-consent.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, NgIf, HeroSectionComponent, Section1HomeComponent, Section2HomeComponent, Section3HomeComponent, Section4HomeComponent, Section5HomeComponent, Section6HomeComponent, Section7HomeComponent, FooterHomeComponent, NotFoundComponent, NavbarComponent, HeaderComponent],
+  imports: [RouterOutlet, FormsModule, NgIf, HeroSectionComponent, Section1HomeComponent, Section2HomeComponent, Section3HomeComponent, Section4HomeComponent, Section5HomeComponent, Section6HomeComponent, Section7HomeComponent, FooterHomeComponent, NotFoundComponent, NavbarComponent, HeaderComponent, CookieConsentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
