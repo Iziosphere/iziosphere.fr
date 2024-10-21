@@ -1,7 +1,7 @@
 <div class="position-relative"
      style="margin-top: 90px;background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('header.webp'); background-size: cover; background-position: center; background-repeat: no-repeat">
   <div class="container d-flex flex-column justify-content-center text-white" style="min-height: 25vh;">
-    <p class="display-5 fw-bold m-0">{{ breadcrumbs.at(1)?.name }}</p>
+    <p class="display-5 fw-bold m-0">{{ breadcrumbs.at(-1)?.name }}</p>
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" data-bs-theme="dark">
       <ol class="breadcrumb">
         @for (b of breadcrumbs; track b) {
