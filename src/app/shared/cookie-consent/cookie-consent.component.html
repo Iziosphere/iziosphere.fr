@@ -1,10 +1,12 @@
-<div *ngIf="showBanner" class="cookie-consent-banner">
+<div *ngIf="showBanner" class="card card-body col-md-4 m-2 shadow position-fixed bottom-0 end-0 border-dark"
+  style="z-index: 1000;">
+  <p class="h3">Politique de cookies</p>
   <p>
-    Nous utilisons des cookies pour améliorer votre expérience sur notre site. En poursuivant votre
-    navigation, vous acceptez notre utilisation des cookies.
+    Nous utilisons des cookies pour améliorer votre expérience et les services disponibles sur ce site. Pour en savoir
+    plus, visitez la page <a href="#">Données personnelles et cookies</a>.
   </p>
-  <div class="buttons">
-    <button (click)="acceptCookies()">Accepter</button>
-    <button (click)="rejectCookies()">Refuser</button>
+  <div class="d-flex gap-3">
+    <button class="btn btn-primary" (click)="acceptCookies()">Accepter</button>
+    <button class="btn btn-outline-dark" (click)="rejectCookies()">Refuser</button>
   </div>
 </div>
