@@ -14,16 +14,18 @@
           <div class="card h-100">
             <img [src]="article.image" class="card-img-top" [alt]="article.title" aria-hidden="true">
             <div class="card-body position-relative d-flex flex-column justify-content-between">
-              <span class="text-bg-primary py-1 px-2 position-absolute top-0 translate-middle-y">{{article.date}}</span>
+                <span class="text-bg-primary py-1 px-2 position-absolute top-0 translate-middle-y">{{ article.publishedAt | date: 'dd MMMM yyyy' }}</span>
               <div class="my-3">
-                <p class="card-text m-0 text-muted">Dans {{ article.category }}</p>
+                <!-- <p class="card-text m-0 text-muted">Dans {{ article.category }}</p> -->
                 <h3 class="card-title h5">{{ article.title }}</h3>
               </div>
-              <a [href]="article.link" class="link-dark text-decoration-none stretched-link" [attr.aria-label]="article +article.title">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                <a [href]="'news/' + article.slug" [routerLink]="['news', article.slug]" class="link-dark text-decoration-none stretched-link" [attr.aria-label]="article.title">Lire la suite <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
       }
+
+
 
     </div>
   </div>

@@ -6,6 +6,7 @@ import { IplocationComponent } from './pages/tools/iplocation/iplocation.compone
 import { TextEditorComponent } from './pages/tools/text-editor/text-editor.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { NewsComponent } from './pages/news/news.component';
 
 export const routes: Routes = [
   {
@@ -33,6 +34,13 @@ export const routes: Routes = [
     component: ContactComponent,
     data: {
       title: 'Contact'
+    }
+  },
+  {
+    path: 'news/:slug',
+    component: NewsComponent,
+    data: {
+      title: 'News'
     }
   },
   {

@@ -37,7 +37,5 @@ export class TextEditorComponent {
     this.sanitizedContent = this.sanitizer.bypassSecurityTrustHtml(this.content);
   }
 
-  saveContent() {
-    console.log(this.content);
-  }
+  saveContent() {}
 }
