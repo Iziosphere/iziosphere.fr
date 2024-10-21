@@ -5,10 +5,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { IplocationComponent } from './pages/tools/iplocation/iplocation.component';
 import { TextEditorComponent } from './pages/tools/text-editor/text-editor.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
-
-
   {
     path: '',
     component: HomeComponent,
@@ -30,6 +29,13 @@ export const routes: Routes = [
     // canActivate: [DisconnectedGuard]
   },
   {
+    path: 'contact',
+    component: ContactComponent,
+    data: {
+      title: 'Contact'
+    }
+  },
+  {
     path: 'tools/ip-location',
     component: IplocationComponent,
     data: {
@@ -41,6 +47,13 @@ export const routes: Routes = [
     component: TextEditorComponent,
     data: {
       title: 'text editor'
+    }
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    data: {
+      title: 'Contact'
     }
   },
   {
