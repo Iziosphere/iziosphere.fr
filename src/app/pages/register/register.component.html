@@ -1,47 +1,47 @@
 <div class="container py-5">
 
-    <ul class="nav justify-content-center mb-3">
-      <li class="nav-item">
-        <a class="nav-link" href="/login" [routerLink]="['/login']">Se connecter</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link border-bottom border-primary border-2" href="/register" [routerLink]="['/register']">S'inscrire</a>
-      </li>
-    </ul>
-  
-  
-    <form class="col-md-6 mx-auto">
-      <div class="mb-3">
-        <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
-        <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
-      </div>
-      <div class="mb-3">
-        <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
-        <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-      </div>
-      <div class="mb-3">
-        <label for="confirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>
-        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
-      </div>
-      <div class="form-check mb-3">
-        <input class="form-check-input" type="checkbox" id="terms" required>
-        <label class="form-check-label" for="terms">
-          I agree to the <a href="#" class="text-decoration-none">terms and conditions</a> <span class="text-danger">*</span>
-        </label>
-      </div>
-      <div class="d-grid">
-        <button type="submit" class="btn btn-primary btn-lg rounded-0">Register</button>
-      </div>
-    </form>
-    
-  
-  </div>
-  
+	<ul class="nav justify-content-center mb-3">
+		<li class="nav-item">
+			<a class="nav-link" [href]="['/login']" [routerLink]="['/login']">Se connecter</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link border-bottom border-primary border-2" [href]="['/register']"
+				[routerLink]="['/register']">S'inscrire</a>
+		</li>
+	</ul>
+
+	<form class="col-md-6 mx-auto">
+		<div class="mb-3">
+			<label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+			<input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+		</div>
+		<div class="mb-3">
+			<label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+			<input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+		</div>
+		<div class="mb-3">
+			<label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+			<input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+		</div>
+		<div class="mb-3">
+			<label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+			<input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+		</div>
+		<div class="mb-3">
+			<label for="confirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+			<input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password"
+				required>
+		</div>
+		<div class="form-check mb-3">
+			<input class="form-check-input" type="checkbox" id="terms" required>
+			<label class="form-check-label" for="terms">
+				I agree to the <a href="#" class="text-decoration-none">terms and conditions</a> <span
+					class="text-danger">*</span>
+			</label>
+		</div>
+		<div class="d-grid">
+			<button type="submit" class="btn btn-primary btn-lg rounded-0">Register</button>
+		</div>
+	</form>
+
+</div>
