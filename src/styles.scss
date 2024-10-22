@@ -9,7 +9,7 @@
   --bs-primary-rgb: 32, 82, 146;
   --bs-dark: #191C23;
   --bs-dark-rgb: 25, 28, 35;
-  
+
   --bs-link-color: var(--bs-primary);
   --bs-link-color-rgb: var(--bs-primary-rgb);
   --bs-link-decoration: underline;
@@ -80,3 +80,5 @@ body {
 
 
 @import "generic-position";
+
+@import 'ngx-toastr/toastr';

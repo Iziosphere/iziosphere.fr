@@ -10,35 +10,35 @@
 		</li>
 	</ul>
 
-	<form class="col-md-6 mx-auto">
+	<form class="col-md-6 mx-auto"  (ngSubmit)="register()">
 		<div class="mb-3">
 			<label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
-			<input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+			<input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your first name" required  [(ngModel)]="registerRequest.firstName">
 		</div>
 		<div class="mb-3">
 			<label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
-			<input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+			<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter your last name" required  [(ngModel)]="registerRequest.lastName">
 		</div>
 		<div class="mb-3">
 			<label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-			<input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+			<input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required  [(ngModel)]="registerRequest.email">
 		</div>
 		<div class="mb-3">
 			<label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-			<input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+			<input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required  [(ngModel)]="registerRequest.password">
 		</div>
-		<div class="mb-3">
-			<label for="confirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>
-			<input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password"
-				required>
-		</div>
-		<div class="form-check mb-3">
-			<input class="form-check-input" type="checkbox" id="terms" required>
-			<label class="form-check-label" for="terms">
-				I agree to the <a href="#" class="text-decoration-none">terms and conditions</a> <span
-					class="text-danger">*</span>
-			</label>
-		</div>
+<!--		<div class="mb-3">-->
+<!--			<label for="confirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>-->
+<!--			<input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password"-->
+<!--				required>-->
+<!--		</div>-->
+<!--		<div class="form-check mb-3">-->
+<!--			<input class="form-check-input" type="checkbox" id="terms" required>-->
+<!--			<label class="form-check-label" for="terms">-->
+<!--				I agree to the <a href="#" class="text-decoration-none">terms and conditions</a> <span-->
+<!--					class="text-danger">*</span>-->
+<!--			</label>-->
+<!--		</div>-->
 		<div class="d-grid">
 			<button type="submit" class="btn btn-primary btn-lg rounded-0">Register</button>
 		</div>

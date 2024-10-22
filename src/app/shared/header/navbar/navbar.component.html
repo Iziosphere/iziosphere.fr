@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Burger Menu Button -->
     <button aria-label="Toggle navigation" class="navbar-toggler border-0 me-3" type="button" data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+            data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -21,18 +21,23 @@
 
       <div class="offcanvas-body">
         <!-- Navbar Links -->
+        @if (isLogged) {
+          <p>Connecté</p>
+        } @else {
+          <p>Non connecté</p>
+        }
         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link" href="/" aria-label="Go to Home" [routerLink]="['/']"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Accueil</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Accueil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/services" aria-label="Go to Page" [routerLink]="['/services']"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Services</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Services</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/projects" aria-label="Go to Departments" [routerLink]="['/projects']"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Projets</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Projets</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/news" aria-label="Go to Events" [routerLink]="['/news']"><i
@@ -40,15 +45,16 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/tools" aria-label="Go to Link" [routerLink]="['/tools']"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Outils & Resources</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Outils & Resources</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about" aria-label="Go to News" [routerLink]="['/about']"><i class="fas fa-chevron-right me-3 d-lg-none"></i>À
+            <a class="nav-link" href="/about" aria-label="Go to News" [routerLink]="['/about']"><i
+              class="fas fa-chevron-right me-3 d-lg-none"></i>À
               Propos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/contact" aria-label="Go to Portfolio" [routerLink]="['/contact']"><i
-                class="fas fa-chevron-right me-3 d-lg-none"></i>Contact</a>
+              class="fas fa-chevron-right me-3 d-lg-none"></i>Contact</a>
           </li>
         </ul>
       </div>
@@ -56,15 +62,24 @@
 
     <!-- User Profile Dropdown -->
     <div class="dropdown">
-      <button aria-label="Open profile menu" class="btn btn-lg d-lg-none d-block" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button aria-label="Open profile menu" class="btn btn-lg d-lg-none d-block" type="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
         <i class="far fa-user"></i>
       </button>
-      <button class="btn btn-outline-dark rounded-0 d-none d-lg-block" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn btn-outline-dark rounded-0 d-none d-lg-block" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
         My Account
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
-        <li><a class="dropdown-item" href="/login" aria-label="Login" [routerLink]="['/login']">Login</a></li>
-        <li><a class="dropdown-item" href="/register" aria-label="Register" [routerLink]="['/register']">Register</a></li>
+        @if (!isLogged) {
+          <li><a class="dropdown-item" href="/login" aria-label="Login" [routerLink]="['/login']">Login</a></li>
+          <li><a class="dropdown-item" href="/register" aria-label="Register" [routerLink]="['/register']">Register</a>
+          </li>
+        } @else {
+          <li><a class="dropdown-item" href="/profile" aria-label="Profile" [routerLink]="['/profile']">Profile</a>
+          </li>
+          <li><button class="dropdown-item" href="/logout" aria-label="Logout" (click)="logout()">Logout</button></li>
+        }
       </ul>
     </div>
   </div>

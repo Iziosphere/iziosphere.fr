@@ -1,5 +1,4 @@
 <div class="container py-5">
-
   <ul class="nav justify-content-center mb-3">
     <li class="nav-item">
       <a class="nav-link border-bottom border-primary border-2" [href]="['/login']" [routerLink]="['/login']">Se connecter</a>
@@ -9,19 +8,18 @@
     </li>
   </ul>
 
-
-  <form class="col-md-6 mx-auto">
+  <form class="col-md-6 mx-auto" (ngSubmit)="login()">
     <div class="mb-3">
-      <label for="username" class="form-label">Username or Email <span class="text-danger">*</span></label>
-      <input type="text" class="form-control" id="username" placeholder="Enter username or email" required>
+      <label for="email" class="form-label">Username or Email <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" id="email" name="email" placeholder="Enter username or email" required [(ngModel)]="loginRequest.email">
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required [(ngModel)]="loginRequest.password">
     </div>
     <div class="d-flex justify-content-between align-items-center mb-3">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="rememberMe">
+        <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
         <label class="form-check-label" for="rememberMe">
           Remember me
         </label>
@@ -32,5 +30,4 @@
       <button type="submit" class="btn btn-primary btn-lg rounded-0">Login</button>
     </div>
   </form>
-
 </div>
