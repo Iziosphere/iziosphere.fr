@@ -7,6 +7,7 @@ import { TextEditorComponent } from './pages/tools/text-editor/text-editor.compo
 import { RegisterComponent } from './pages/register/register.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NewsComponent } from './pages/news/news.component';
+import { ServicesComponent } from './pages/services/services.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,13 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     // canActivate: [DisconnectedGuard]
+  },
+  {
+    path: 'services',
+    component: ServicesComponent,
+    data: {
+      title: 'Services'
+    }
   },
   {
     path: 'contact',
