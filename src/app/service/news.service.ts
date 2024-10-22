@@ -5,20 +5,20 @@ import { News } from '../models/news.model';
 import {API_URL} from './config';
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: 'root'
 })
 export class NewsService {
 
   private apiUrl = API_URL + '/posts';
-	constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-	getNews(): Observable<News[]> {
-		return this.http.get<News[]>(API_URL);
-	}
+  getNews(): Observable<News[]> {
+    return this.http.get<News[]>(this.apiUrl);
+  }
 
-	getNewsBySlug(slug: string | null): Observable<News> {
-		return this.http.get<News>(`${API_URL}/${slug}`);
-	}
+  getNewsBySlug(slug: string | null): Observable<News> {
+    return this.http.get<News>(`${this.apiUrl}/${slug}`);
+  }
 
 }
 
