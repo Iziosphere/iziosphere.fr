@@ -8,6 +8,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NewsComponent } from './pages/news/news.component';
 import { ServicesComponent } from './pages/services/services.component';
+import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
   {
@@ -42,6 +43,13 @@ export const routes: Routes = [
     component: ContactComponent,
     data: {
       title: 'Contact'
+    }
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+    data: {
+      title: 'About'
     }
   },
   {
