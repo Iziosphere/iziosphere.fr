@@ -11,11 +11,11 @@ export class NewsService {
   constructor(private http: HttpClient) { }
 
   getNews() : Observable<News[]> {
-    return this.http.get<News[]>('https://iziosphere.fr:60000/news');
+    return this.http.get<News[]>('https://api-iziosphere.jsmb.fr/news');
   }
 
   getNewsBySlug(slug: string | null) : Observable<News> {
-    return this.http.get<News>(`https://iziosphere.fr:60000/news/${slug}`);
+    return this.http.get<News>(`https://api-iziosphere.jsmb.fr/news/${slug}`);
   }
     
 
