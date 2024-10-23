@@ -24,6 +24,16 @@
   --bs-border-radius-2xl: 0;
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: var(--bs-white);
+  background: var(--bs-primary);
+}
+
+::selection {
+  color: var(--bs-white);
+  background: var(--bs-primary);
+}
+
 html {
   scrollbar-color: var(--bs-dark) var(--bs-body-bg);
   scrollbar-width: thin;
