@@ -7,7 +7,6 @@ import {Section3HomeComponent} from "./section-3-home/section-3-home.component";
 import {Section4HomeComponent} from "./section-4-home/section-4-home.component";
 import {Section5HomeComponent} from "./section-5-home/section-5-home.component";
 import {Section6HomeComponent} from "./section-6-home/section-6-home.component";
-import {Section7HomeComponent} from "./section-7-home/section-7-home.component";
 
 @Component({
   selector: 'app-home',
@@ -20,8 +19,7 @@ import {Section7HomeComponent} from "./section-7-home/section-7-home.component";
         Section3HomeComponent,
         Section4HomeComponent,
         Section5HomeComponent,
-        Section6HomeComponent,
-        Section7HomeComponent
+        Section6HomeComponent
     ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
