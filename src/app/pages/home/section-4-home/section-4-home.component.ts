@@ -21,9 +21,9 @@ export class Section4HomeComponent implements OnInit {
   constructor(private newsService: NewsService) {
 
   }
-  
+
   ngOnInit(): void {
-    this.newsService.getNews().subscribe(news => this.news = news);
+    this.newsService.getNews().subscribe(news => this.news = news.data);
   }
 
 

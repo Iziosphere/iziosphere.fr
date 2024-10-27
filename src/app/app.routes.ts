@@ -6,9 +6,10 @@ import { IplocationComponent } from './pages/tools/iplocation/iplocation.compone
 import { TextEditorComponent } from './pages/tools/text-editor/text-editor.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { NewsComponent } from './pages/news/news.component';
+import { NewsDetailsComponent } from './pages/news-details/news-details.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { AboutComponent } from './pages/about/about.component';
+import {NewsComponent} from './pages/news/news.component';
 
 export const routes: Routes = [
   {
@@ -53,10 +54,17 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'news/:slug',
+    path: 'news',
     component: NewsComponent,
     data: {
       title: 'News'
+    }
+  },
+  {
+    path: 'news/:slug',
+    component: NewsDetailsComponent,
+    data: {
+      title: 'News_details'
     }
   },
   {

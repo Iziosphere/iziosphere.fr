@@ -7,3 +7,8 @@ export interface News {
     publishedAt: Date;
     updatedAt: Date;
 }
+
+export interface NewsFiltered{
+  data: News[];
+  totalItems: number;
+}
