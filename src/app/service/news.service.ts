@@ -1,7 +1,7 @@
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {News, NewsFiltered} from '../models/news.model';
+import {News, NewsBySlug, NewsFiltered} from '../models/news.model';
 import {API_URL} from './config';
 
 @Injectable({
@@ -25,8 +25,8 @@ export class NewsService {
   }
 
 
-  getNewsBySlug(slug: string | null): Observable<News> {
-    return this.http.get<News>(`${this.apiUrl}/${slug}`);
+  getNewsBySlug(slug: string | null): Observable<NewsBySlug> {
+    return this.http.get<NewsBySlug>(`${this.apiUrl}/${slug}`);
   }
 
 }
