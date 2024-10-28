@@ -3,14 +3,15 @@ import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import { NewsService } from '../../service/news.service';
 import { News } from '../../models/news.model';
 import { ToastrService } from 'ngx-toastr';
-import {NgIf} from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-news',
   standalone: true,
   imports: [
     RouterLink,
-    NgIf
+    NgIf,
+    NgClass
   ],
   templateUrl: './news-details.component.html',
   styleUrl: './news-details.component.scss'
