@@ -63,7 +63,7 @@
 
 
             @if (previousSlug) {
-              <li class="page-item">
+              <li class="page-item col-md">
                 <div class="hstack gap-3 position-relative">
                   <a class="btn btn-lg btn-outline-primary border stretched-link" [routerLink]="['/news', previousSlug]"
                      aria-label="Previous">
@@ -82,7 +82,7 @@
             }
 
             @if (nextSlug && previousSlug) {
-              <li class="page-item">
+              <li class="page-item d-none d-md-flex col-auto mx-5">
                 <a class="link-secondary fs-3" href="#" [routerLink]="['/news']" aria-label="More">
                   <i class="fa-solid fa-ellipsis"></i>
                 </a>
@@ -90,7 +90,7 @@
             }
 
             @if (nextSlug) {
-              <li class="page-item text-end position-relative">
+              <li class="page-item text-end position-relative col-md">
                 <div class="hstack gap-3">
                   <div>
                     <p class="text-primary m-0">
