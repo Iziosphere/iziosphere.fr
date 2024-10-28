@@ -17,13 +17,15 @@ import { RouterLink } from '@angular/router';
 export class Section4HomeComponent implements OnInit {
 
   news: News[] = [];
-
+  page = 1;
+  limit = 3;
+  type = 'news';
   constructor(private newsService: NewsService) {
 
   }
 
   ngOnInit(): void {
-    this.newsService.getNews().subscribe(news => this.news = news.data);
+    this.newsService.getNews(this.page,this.limit,this.type).subscribe(news => this.news = news.data);
   }
 
 

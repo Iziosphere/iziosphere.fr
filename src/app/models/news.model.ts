@@ -6,6 +6,12 @@ export interface News {
     slug: string;
     publishedAt: Date;
     updatedAt: Date;
+    category: Category;
+}
+
+export interface Category{
+  id: number;
+  name: string;
 }
 export interface NewsBySlug{
   post: News;
@@ -15,4 +21,5 @@ export interface NewsBySlug{
 export interface NewsFiltered{
   data: News[];
   totalItems: number;
+  categories: Category[];
 }

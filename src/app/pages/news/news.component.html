@@ -6,7 +6,7 @@
         <label for="categorySelect" class="form-label">Catégories</label>
         <select id="categorySelect" class="form-select" [(ngModel)]="categoryId" (change)="onCategoryChange()">
           <option [ngValue]="undefined">Choix de la categorie</option>
-          @for (category of categories; track category) {
+          @for (category of categories; track category.id) {
           <option [ngValue]="category.id">{{ category.name }}</option>
           }
         </select>
@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  @for (article of listNews; track article) {
+  @for (article of listNews; track article.id) {
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-4">

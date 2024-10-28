@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../service/news.service';
-import { News } from '../../models/news.model';
+import {Category, News} from '../../models/news.model';
 import { DatePipe, NgForOf, NgIf, SlicePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -24,15 +24,9 @@ export class NewsComponent implements OnInit {
   page = 1;
   limit = 5;
   categoryId: number | undefined;
-  categories = [
-    { id: 1, name: 'Web Development' },
-    { id: 2, name: 'Mobile Applications' },
-    { id: 3, name: 'SEO Optimization' },
-    { id: 4, name: 'Digital Marketing' },
-    { id: 5, name: 'Cloud Computing' },
-    { id: 6, name: 'Data Science' },
-    { id: 7, name: 'Cybersecurity' }
-  ];
+  typeFilter= 'news'
+
+  categories: Category[] = []
 
   constructor(private newsService: NewsService, private router: Router) { }
 
@@ -41,11 +35,12 @@ export class NewsComponent implements OnInit {
   }
 
   loadNews() {
-    this.newsService.getNews(this.page, this.limit, this.categoryId).subscribe({
+    this.newsService.getNews(this.page, this.limit,this.typeFilter,this.categoryId).subscribe({
       next: (news) => {
         this.listNews = news.data;
         const totalItems = news.totalItems;
         this.totalPages = Math.ceil(totalItems / this.limit);
+        this.categories = news.categories;
       },
       error: (err) => {
         console.log(err);

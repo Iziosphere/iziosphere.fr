@@ -12,10 +12,11 @@ export class NewsService {
   private apiUrl = API_URL + '/posts';
   constructor(private http: HttpClient) { }
 
-  getNews(page: number = 1, limit: number = 3, categoryId?: number): Observable<NewsFiltered> {
+  getNews(page: number = 1, limit: number = 3,type: string, categoryId?: number): Observable<NewsFiltered> {
     let params = new HttpParams()
       .set('page', page.toString())
-      .set('limit', limit.toString());
+      .set('limit', limit.toString())
+      .set('type', type.toString());
 
     if (categoryId !== undefined) {
       params = params.set('categoryId', categoryId.toString());
