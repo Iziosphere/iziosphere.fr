@@ -3,7 +3,7 @@ import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import { NewsService } from '../../service/news.service';
 import { News } from '../../models/news.model';
 import { ToastrService } from 'ngx-toastr';
-import {NgClass, NgIf} from '@angular/common';
+import {DatePipe, NgClass, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-news',
@@ -11,7 +11,8 @@ import {NgClass, NgIf} from '@angular/common';
   imports: [
     RouterLink,
     NgIf,
-    NgClass
+    NgClass,
+    DatePipe
   ],
   templateUrl: './news-details.component.html',
   styleUrl: './news-details.component.scss'

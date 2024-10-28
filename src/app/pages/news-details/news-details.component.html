@@ -5,7 +5,7 @@
       <img class="img-fluid mb-3" [src]="news?.image" alt="News Image">
       <div class="py-3">
         <h1>{{ news?.title }}</h1>
-        <p class="text-muted">Published: {{ news?.publishedAt }}</p>
+        <p class="text-muted">Published: {{ news?.publishedAt | date: 'dd/MM/yyyy' }}</p>
       </div>
       <hr>
       <div class="py-5" [innerHTML]="news?.content"></div>
