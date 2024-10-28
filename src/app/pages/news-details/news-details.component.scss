@@ -1,0 +1,7 @@
+.link-hover-primary {
+    color: var(--bs-black);
+    text-decoration: none;
+    &:hover {
+        color: var(--bs-primary);
+    }
+}

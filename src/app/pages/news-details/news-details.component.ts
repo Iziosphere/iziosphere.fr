@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from '../../service/news.service';
 import { News } from '../../models/news.model';
-import {ToastrService} from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-news',
@@ -13,10 +13,11 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class NewsDetailsComponent implements OnInit {
 
-  news: News | null = null;
+  news!: News;
+  currentUrl: string = window.location.href;
   slug: string | null = null;
 
-  constructor(private route: ActivatedRoute, private newsService: NewsService, private toastr : ToastrService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private newsService: NewsService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
 

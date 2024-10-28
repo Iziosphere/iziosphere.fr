@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../service/news.service';
 import { News } from '../../models/news.model';
-import {DatePipe, NgForOf, NgIf, SlicePipe} from '@angular/common';
+import { DatePipe, NgForOf, NgIf, SlicePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -34,7 +34,7 @@ export class NewsComponent implements OnInit {
     { id: 7, name: 'Cybersecurity' }
   ];
 
-  constructor(private newsService: NewsService, private router: Router) {}
+  constructor(private newsService: NewsService, private router: Router) { }
 
   ngOnInit() {
     this.loadNews();
