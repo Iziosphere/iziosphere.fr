@@ -37,11 +37,11 @@
     <url>
         <loc>https://iziosphere.fr/tools/ip-location</loc>
         <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>0.8</priority>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://iziosphere.fr/tools/text-editor</loc>
         <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>0.8</priority>
+        <priority>0.5</priority>
     </url>
 </urlset>
