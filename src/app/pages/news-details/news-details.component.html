@@ -59,13 +59,13 @@
                 Previous
               </p>
               <p class="fw-semibold m-0">
-                {{ previousSlug }}
+                {{ previousTitle }}
               </p>
             </div>
             }
           </div>
 
-          <div class="d-none d-md-block col-md-2 text-center">
+          <div class="d-none d-md-block col-md-2 text-center align-self-center">
             @if (nextSlug || previousSlug) {
             <a class="link-secondary fs-3" href="#" [routerLink]="['/news']" aria-label="More">
               <i class="fa-solid fa-ellipsis"></i>
@@ -73,7 +73,7 @@
             }
           </div>
 
-          <div class="col-md-5 hstack gap-3 position-relative justify-content-start justify-content-md-end text-end-md text-start mb-3">
+          <div class="col-md-5 hstack gap-3 position-relative justify-content-start justify-content-md-end text-md-end text-start mb-3">
             @if (nextSlug) {
             <a class="order-md-2 order-1 btn btn-lg btn-outline-primary border stretched-link" [routerLink]="['/news', nextSlug]"
               aria-label="Next">
@@ -84,7 +84,7 @@
                 Next
               </p>
               <p class="fw-semibold m-0">
-                {{ nextSlug }}
+                {{ nextTitle }}
               </p>
             </div>
             }

@@ -24,6 +24,8 @@ export class NewsDetailsComponent implements OnInit {
   slug: string | null = null;
   previousSlug: string | null = null;
   nextSlug: string | null = null;
+  previousTitle: string | null = null;
+  nextTitle: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,6 +50,8 @@ export class NewsDetailsComponent implements OnInit {
           this.news = news.post;
           this.previousSlug = news.previousSlug;
           this.nextSlug = news.nextSlug;
+          this.previousTitle = news.previousTitle;
+          this.nextTitle = news.nextTitle;
         } else {
           this.router.navigate(['/404']).then(() => this.toastr.error("News not found."));
         }

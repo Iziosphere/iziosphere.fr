@@ -14,6 +14,8 @@ export interface Category{
   name: string;
 }
 export interface NewsBySlug{
+  nextTitle: string | null;
+  previousTitle: string | null;
   post: News;
   previousSlug: string | null;
   nextSlug: string | null;
