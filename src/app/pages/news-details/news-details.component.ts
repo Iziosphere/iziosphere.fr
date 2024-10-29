@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { NewsService } from '../../service/news.service';
 import { News } from '../../models/news.model';
 import { ToastrService } from 'ngx-toastr';
-import {DatePipe, NgClass, NgIf} from '@angular/common';
+import { DatePipe, NgClass, NgIf } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-news',
@@ -15,7 +16,7 @@ import {DatePipe, NgClass, NgIf} from '@angular/common';
     DatePipe
   ],
   templateUrl: './news-details.component.html',
-  styleUrl: './news-details.component.scss'
+  styleUrls: ['./news-details.component.scss']
 })
 export class NewsDetailsComponent implements OnInit {
 
@@ -31,8 +32,11 @@ export class NewsDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private newsService: NewsService,
     private toastr: ToastrService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private titleService: Title,
+    private metaService: Meta
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -52,6 +56,13 @@ export class NewsDetailsComponent implements OnInit {
           this.nextSlug = news.nextSlug;
           this.previousTitle = news.previousTitle;
           this.nextTitle = news.nextTitle;
+
+          // Mise à jour des balises meta et du titre
+
+          this.setMetaTags(this.news);
+
+
+
         } else {
           this.router.navigate(['/404']).then(() => this.toastr.error("News not found."));
         }
@@ -61,4 +72,25 @@ export class NewsDetailsComponent implements OnInit {
       }
     });
   }
+
+  setMetaTags(news: News) {
+    if (!news) return;
+    this.titleService.setTitle(news.title);
+    this.metaService.updateTag({ name: 'description', content: news.content.slice(0, 100) });
+    this.metaService.updateTag({ property: 'og:title', content: news.title });
+    this.metaService.updateTag({ property: 'og:type', content: 'article' });
+    this.metaService.updateTag({ property: 'og:url', content: window.location.href });
+    this.metaService.updateTag({ property: 'og:image', content: news.image });
+    this.metaService.updateTag({ property: 'og:description', content: news.content.slice(0, 100) });
+    this.metaService.updateTag({ property: 'article:published_time', content: news.publishedAt.toString() });
+    this.metaService.updateTag({ property: 'article:modified_time', content: news.updatedAt.toString() });
+    this.metaService.updateTag({ property: 'article:author', content: news.author });
+    this.metaService.updateTag({ property: 'article:section', content: news.category.name });
+    // todo this.metaService.updateTag({ property: 'article:tag', content: news.category.name });
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:title', content: news.title });
+    this.metaService.updateTag({ name: 'twitter:description', content: news.content.slice(0, 100) });
+    this.metaService.updateTag({ name: 'twitter:image', content: news.image });
+  }
 }
+

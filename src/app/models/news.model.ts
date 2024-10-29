@@ -7,6 +7,7 @@ export interface News {
     publishedAt: Date;
     updatedAt: Date;
     category: Category;
+    author: string;
 }
 
 export interface Category{

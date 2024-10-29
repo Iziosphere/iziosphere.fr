@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from "./pages/home/home.component";
-import { NotFoundComponent } from "./shared/not-found/not-found.component";
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 import { IplocationComponent } from './pages/tools/iplocation/iplocation.component';
 import { TextEditorComponent } from './pages/tools/text-editor/text-editor.component';
@@ -9,90 +9,106 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { NewsDetailsComponent } from './pages/news-details/news-details.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { AboutComponent } from './pages/about/about.component';
-import {NewsComponent} from './pages/news/news.component';
+import { NewsComponent } from './pages/news/news.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     data: {
-      title: 'Home'
+      title: 'Home',
+      description: 'Welcome to the home page',
+      keywords: 'home, main, welcome'
     }
   },
   {
     path: 'login',
     component: LoginComponent,
     data: {
-      title: 'Login'
+      title: 'Login',
+      description: 'Login page',
+      keywords: 'login, connexion, authentification'
     }
-    // canActivate: [DisconnectedGuard]
   },
   {
     path: 'register',
     component: RegisterComponent,
-    // canActivate: [DisconnectedGuard]
+    data: {
+      title: 'Register',
+      description: 'Register page',
+      keywords: 'register, inscription, authenthification'
+    }
   },
   {
     path: 'services',
     component: ServicesComponent,
     data: {
-      title: 'Services'
+      title: 'Services',
+      description: 'Services page',
+      keywords: 'services, prestations, offres'
     }
   },
   {
     path: 'contact',
     component: ContactComponent,
     data: {
-      title: 'Contact'
+      title: 'Contact',
+      description: 'Contact us page',
+      keywords: 'contact, support, help'
     }
   },
   {
     path: 'about',
     component: AboutComponent,
     data: {
-      title: 'About'
+      title: 'About',
+      description: 'About us page',
+      keywords: 'about, information, company'
     }
   },
   {
     path: 'news',
     component: NewsComponent,
     data: {
-      title: 'News'
+      title: 'News',
+      description: 'Latest news and updates',
+      keywords: 'news, updates, articles'
     }
   },
   {
     path: 'news/:slug',
     component: NewsDetailsComponent,
     data: {
-      title: 'News_details'
+      title: 'News Details',
+      description: 'Detailed news article',
+      keywords: 'news, details, article'
     }
   },
   {
     path: 'tools/ip-location',
     component: IplocationComponent,
     data: {
-      title: 'Ip Location'
+      title: 'IP Location',
+      description: 'IP location tool',
+      keywords: 'ip, location, tool'
     }
   },
   {
     path: 'tools/text-editor',
     component: TextEditorComponent,
     data: {
-      title: 'text editor'
-    }
-  },
-  {
-    path: 'contact',
-    component: ContactComponent,
-    data: {
-      title: 'Contact'
+      title: 'Text Editor',
+      description: 'Online text editor',
+      keywords: 'text, editor, tool'
     }
   },
   {
     path: '**',
     component: NotFoundComponent,
     data: {
-      title: 'Not Found'
+      title: 'Not Found',
+      description: 'Page not found',
+      keywords: '404, not found, error'
     }
   }
 ];
