@@ -1,47 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <urlset>
     <url>
-        <loc>https://iziosphere.fr/</loc>
-        <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>1.0</priority>
+      <loc>https://iziosphere.fr/</loc>
+      <lastmod>2024-10-29T23:07:35+01:00</lastmod>
+      <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://iziosphere.fr/login</loc>
-        <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>0.8</priority>
+      <loc>https://iziosphere.fr/services</loc>
+      <lastmod>2024-10-29T23:07:35+01:00</lastmod>
+      <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://iziosphere.fr/register</loc>
-        <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>0.8</priority>
+      <loc>https://iziosphere.fr/about</loc>
+      <lastmod>2024-10-29T23:07:35+01:00</lastmod>
+      <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://iziosphere.fr/services</loc>
-        <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>0.8</priority>
+      <loc>https://iziosphere.fr/contact</loc>
+      <lastmod>2024-10-29T23:07:35+01:00</lastmod>
+      <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://iziosphere.fr/contact</loc>
-        <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>0.8</priority>
+      <loc>https://iziosphere.fr/news</loc>
+      <lastmod>2024-10-29T23:07:35+01:00</lastmod>
+      <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://iziosphere.fr/about</loc>
-        <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>0.8</priority>
+      <loc>https://iziosphere.fr/login</loc>
+      <lastmod>2024-10-29T23:07:35+01:00</lastmod>
+      <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://iziosphere.fr/news</loc>
-        <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>0.8</priority>
+      <loc>https://iziosphere.fr/register</loc>
+      <lastmod>2024-10-29T23:07:35+01:00</lastmod>
+      <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://iziosphere.fr/tools/ip-location</loc>
-        <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>0.5</priority>
+      <loc>https://iziosphere.fr/tools/ip-location</loc>
+      <lastmod>2024-10-29T23:07:35+01:00</lastmod>
+      <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://iziosphere.fr/tools/text-editor</loc>
-        <lastmod>2024-10-29T23:07:35+01:00</lastmod>
-        <priority>0.5</priority>
+      <loc>https://iziosphere.fr/tools/text-editor</loc>
+      <lastmod>2024-10-29T23:07:35+01:00</lastmod>
+      <priority>0.6</priority>
     </url>
+  </urlset>
 </urlset>
