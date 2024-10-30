@@ -66,14 +66,14 @@ export class AppComponent implements OnInit {
           this.metaService.updateTag({ property: 'og:site_name', content: 'Iziosphere' });
           this.metaService.updateTag({ property: 'og:title', content: data['title'] });
           this.metaService.updateTag({ property: 'og:description', content: data['description'] || 'Description par défaut' });
-          this.metaService.updateTag({ property: 'og:image', content: 'icon.svg' });
+          this.metaService.updateTag({ property: 'og:image', content: 'https://iziosphere.fr/icon.svg' });
           this.metaService.updateTag({ property: 'og:url', content: this.router.url});
           this.metaService.updateTag({ name: 'twitter:description', content: data['description'] || 'Description par défaut' });
           this.metaService.updateTag({ name: 'twitter:title', content: data['title'] });
           this.metaService.updateTag({ name: 'twitter:site', content: '@iziosphere' });
           this.metaService.updateTag({ name: 'twitter:creator', content: '@iziosphere' });
           this.metaService.updateTag({ name: 'twitter:card', content: 'summary' });
-          this.metaService.updateTag({ name: 'twitter:image', content: 'icon.svg' });
+          this.metaService.updateTag({ name: 'twitter:image', content: 'https://iziosphere.fr/icon.svg' });
           this.metaService.updateTag({ name: 'twitter:image:alt', content: 'Iziosphere Logo' });
         }
       });
