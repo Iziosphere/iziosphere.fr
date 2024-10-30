@@ -1,4 +1,5 @@
-import {Component, ElementRef, AfterViewInit, ViewChildren, QueryList, OnInit} from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ViewChildren, QueryList, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-section-3-home',
@@ -6,7 +7,7 @@ import {Component, ElementRef, AfterViewInit, ViewChildren, QueryList, OnInit} f
   standalone: true,
   styleUrls: ['./section-3-home.component.scss']
 })
-export class Section3HomeComponent implements OnInit{
+export class Section3HomeComponent implements AfterViewInit {
   stats = [
     {
       icon: 'fas fa-laptop-code',
@@ -32,19 +33,24 @@ export class Section3HomeComponent implements OnInit{
 
   @ViewChildren('counter') counters!: QueryList<ElementRef>;
 
-  ngAfterViewInit() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.startCounting(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
-    this.counters.forEach(counter => {
-      observer.observe(counter.nativeElement);
-    });
+  ngAfterViewInit() {
+    // Vérifie si le code s'exécute dans un environnement navigateur
+    if (isPlatformBrowser(this.platformId)) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.startCounting(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      this.counters.forEach(counter => {
+        observer.observe(counter.nativeElement);
+      });
+    }
   }
 
   startCounting(element: any) {
@@ -64,8 +70,5 @@ export class Section3HomeComponent implements OnInit{
     };
 
     updateCounter();
-  }
-
-  ngOnInit(): void {
   }
 }

@@ -75,12 +75,20 @@ jobs:
           # Uncomment the next line to debug the substituted file
           cat docker-compose.temp.yml
 
+      - name: Ensure remote directory exists
+        run: |
+          sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no $SSH_USERNAME@iziosphere.fr "mkdir -p /home/admin/iziosphere/front"
+        env:
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+
       - name: Copy docker-compose.yml to remote server
         run: |
           sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no docker-compose.temp.yml $SSH_USERNAME@iziosphere.fr:/home/admin/iziosphere/front/docker-compose.yml
         env:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+
       - name: Deploy to remote server via SSH
         run: |
           sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no $SSH_USERNAME@iziosphere.fr << 'EOF'
@@ -91,3 +99,4 @@ jobs:
         env:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME_2 }}
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD_2 }}
+

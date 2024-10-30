@@ -2,7 +2,7 @@ import {ApplicationConfig, provideZoneChangeDetection} from '@angular/core';
 import {provideRouter, withInMemoryScrolling, withRouterConfig} from '@angular/router';
 
 import {routes} from './app.routes';
-import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {provideHttpClient, withFetch, withInterceptors} from '@angular/common/http';
 import {provideToastr} from 'ngx-toastr';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {authInterceptor} from './interceptors/auth-interceptor';
@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
   }), withRouterConfig({
     paramsInheritanceStrategy: 'always',
     onSameUrlNavigation: 'reload'
-  }),), provideHttpClient(withInterceptors([authInterceptor])),
+  }),), provideHttpClient(withInterceptors([authInterceptor]),withFetch()),
     provideAnimations(),
     // required animations providers
     provideToastr({
