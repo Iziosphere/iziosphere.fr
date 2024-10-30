@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  iziosphere-frontend:
+    image: ${DOCKER_IMAGE}:latest
+    ports:
+      - "60002:4000"
+    networks:
+      - iziosphere-network
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+networks:
+  iziosphere-network:
+    driver: overlay

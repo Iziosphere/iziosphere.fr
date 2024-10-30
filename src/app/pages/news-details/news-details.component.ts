@@ -21,7 +21,7 @@ import { Title, Meta } from '@angular/platform-browser';
 export class NewsDetailsComponent implements OnInit {
 
   news: News | null = null;
-  currentUrl: string = window.location.href;
+  currentUrl: string = '';
   slug: string | null = null;
   previousSlug: string | null = null;
   nextSlug: string | null = null;
@@ -56,7 +56,7 @@ export class NewsDetailsComponent implements OnInit {
           this.nextSlug = news.nextSlug;
           this.previousTitle = news.previousTitle;
           this.nextTitle = news.nextTitle;
-
+          this.currentUrl = this.router.url;
           // Mise à jour des balises meta et du titre
 
           this.setMetaTags(this.news);
@@ -79,7 +79,7 @@ export class NewsDetailsComponent implements OnInit {
     this.metaService.updateTag({ name: 'description', content: news.content.slice(0, 100) });
     this.metaService.updateTag({ property: 'og:title', content: news.title });
     this.metaService.updateTag({ property: 'og:type', content: 'article' });
-    this.metaService.updateTag({ property: 'og:url', content: window.location.href });
+    this.metaService.updateTag({ property: 'og:url', content: this.router.url });
     this.metaService.updateTag({ property: 'og:image', content: news.image });
     this.metaService.updateTag({ property: 'og:description', content: news.content.slice(0, 100) });
     this.metaService.updateTag({ property: 'article:published_time', content: news.publishedAt.toString() });

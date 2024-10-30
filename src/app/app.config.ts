@@ -6,6 +6,7 @@ import {provideHttpClient, withInterceptors} from '@angular/common/http';
 import {provideToastr} from 'ngx-toastr';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {authInterceptor} from './interceptors/auth-interceptor';
+import { provideClientHydration } from '@angular/platform-browser';
 
 
 export const appConfig: ApplicationConfig = {
@@ -22,6 +23,6 @@ export const appConfig: ApplicationConfig = {
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
-    }),
+    }), provideClientHydration(),
   ]
 };

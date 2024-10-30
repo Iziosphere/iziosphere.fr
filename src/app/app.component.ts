@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
           this.metaService.updateTag({ property: 'og:title', content: data['title'] });
           this.metaService.updateTag({ property: 'og:description', content: data['description'] || 'Description par défaut' });
           this.metaService.updateTag({ property: 'og:image', content: 'icon.svg' });
-          this.metaService.updateTag({ property: 'og:url', content: window.location.href });
+          this.metaService.updateTag({ property: 'og:url', content: this.router.url});
           this.metaService.updateTag({ name: 'twitter:description', content: data['description'] || 'Description par défaut' });
           this.metaService.updateTag({ name: 'twitter:title', content: data['title'] });
           this.metaService.updateTag({ name: 'twitter:site', content: '@iziosphere' });

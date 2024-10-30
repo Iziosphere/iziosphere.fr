@@ -1,74 +1,93 @@
-name: Deploy Angular Project
+name: Build and Deploy Angular Application
 
 on:
   push:
     branches:
       - main
 
+env:
+  DOCKER_IMAGE: chadowiv/iziosphere-front
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18.19'
+          node-version: '20'
 
-      - name: Install dependencies & Build Angular project
-        run: |
-          npm install
-          npm run build
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Upload build artifact
+      - name: Build the project
+        run: npm run build
+
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: angular-build
-          path: dist/iziosphere/browser/
+          name: build-artifacts
+          path: dist/
 
-#  codeql-analysis:
-#    runs-on: ubuntu-latest
-#    permissions:
-#      actions: read
-#      security-events: write
-#    strategy:
-#      matrix:
-#        language: [javascript]
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v4
-#
-#      - name: Initialize CodeQL
-#        uses: github/codeql-action/init@v2
-#        with:
-#          languages: ${{ matrix.language }}
-#
-#      - name: Autobuild
-#        uses: github/codeql-action/autobuild@v2
-#
-#      - name: Perform CodeQL Analysis
-#        uses: github/codeql-action/analyze@v2
-
-  deploy:
+  package:
     needs: build
     runs-on: ubuntu-latest
-
     steps:
-      - name: Download build artifact
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: angular-build
-          path: dist/iziosphere/browser/
+          name: build-artifacts
+          path: dist/
 
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Deploy to remote server
+      - name: Build and push Docker image
+        run: |
+          docker build -t $DOCKER_IMAGE:latest .
+          docker push $DOCKER_IMAGE:latest
+
+  deploy:
+    needs: package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install sshpass and envsubst
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sshpass gettext-base
+
+      - name: Prepare docker-compose.yml
+        run: |
+          envsubst < docker-compose.yml > docker-compose.temp.yml
+          # Uncomment the next line to debug the substituted file
+          cat docker-compose.temp.yml
+
+      - name: Copy docker-compose.yml to remote server
+        run: |
+          sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no docker-compose.temp.yml $SSH_USERNAME@iziosphere.fr:/home/admin/iziosphere/front/docker-compose.yml
         env:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+      - name: Deploy to remote server via SSH
         run: |
-          sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -r dist/iziosphere/browser/* $SSH_USERNAME@iziosphere.fr:/home/admin/web/iziosphere.fr/public_html/
+          sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no $SSH_USERNAME@iziosphere.fr << 'EOF'
+            docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+            docker stack deploy -c /home/admin/iziosphere/front/docker-compose.yml iziosphere_network_stack
+            docker service ls
+          EOF
+        env:
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME_2 }}
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD_2 }}
