@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+
+import {Component, OnInit, Inject, PLATFORM_ID} from '@angular/core';
 import {Router, RouterLink, ActivatedRoute, NavigationEnd} from '@angular/router';
-import {CommonModule} from '@angular/common';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {filter} from 'rxjs/operators';
 
 export interface Breadcrumb {
@@ -20,18 +21,27 @@ export interface Breadcrumb {
 })
 export class BreadcrumbComponent implements OnInit {
   breadcrumbs: Breadcrumb[] = [];
+  isBrowser: boolean;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngOnInit() {
-    this.updateBreadcrumbs();
-
-    // Subscribe to router events and update breadcrumbs on every navigation end
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
+    if (this.isBrowser) {
       this.updateBreadcrumbs();
-    });
+
+      // Subscribe to router events and update breadcrumbs on every navigation end
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)
+      ).subscribe(() => {
+        this.updateBreadcrumbs();
+      });
+    }
   }
 
   private updateBreadcrumbs() {
@@ -53,7 +63,6 @@ export class BreadcrumbComponent implements OnInit {
 
     for (const segment of urlSegments) {
       accumulatedLink += '/' + segment;
-
       // Get the name of the segment, or handle dynamic routes
       const routeConfig = this.getRouteConfig(accumulatedLink);
 
@@ -63,8 +72,7 @@ export class BreadcrumbComponent implements OnInit {
         const paramKey = routeConfig.path.match(/:(\w+)/)?.[1];
         name = this.route.snapshot.paramMap.get(paramKey!);
       } else {
-        name = segment
-
+        name = segment;
       }
       this.breadcrumbs.push({name: name || segment, link: accumulatedLink});
     }
@@ -108,3 +116,4 @@ export class BreadcrumbComponent implements OnInit {
       .replace(/\b\w/g, char => char.toUpperCase());
   }
 }
+
