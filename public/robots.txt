@@ -1,0 +1,12 @@
+# robots.txt pour https://iziosphere.fr/
+
+User-agent: *
+
+Crawl-delay: 10
+
+Disallow: /admin
+
+
+Clean-param:
+
+Sitemap: https://iziosphere.fr/sitemap.xml

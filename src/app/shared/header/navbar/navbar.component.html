@@ -76,6 +76,9 @@
           </li>
           <li><button class="dropdown-item" href="/logout" aria-label="Logout" (click)="logout()">Logout</button></li>
         }
+        @if(isAdmin) {
+          <li><a class="dropdown-item" href="/admin" aria-label="Admin" [routerLink]="['/admin']">Pannel admin</a></li>
+        }
       </ul>
     </div>
   </div>

@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
   chatResponse: string | null = null;
   errorMessage: string | null = null;
   waitingForResponse = false;
+  isAdminRoute = false;
 
 
   constructor(private mistralService: MistralService, private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title, private metaService :Meta) {
@@ -39,6 +40,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.setTitleOnPage();
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const url = event.url;
+        this.isAdminRoute = url.includes('/admin');
+      }
+    });
   }
 
   setTitleOnPage() {

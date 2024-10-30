@@ -10,6 +10,8 @@ import { NewsDetailsComponent } from './pages/news-details/news-details.componen
 import { ServicesComponent } from './pages/services/services.component';
 import { AboutComponent } from './pages/about/about.component';
 import { NewsComponent } from './pages/news/news.component';
+import {AdminDashboardComponent} from './pages/admin/admin-dashboard/admin-dashboard.component';
+import {adminGuard} from './guards/admin-guard';
 
 export const routes: Routes = [
   {
@@ -100,6 +102,16 @@ export const routes: Routes = [
       title: 'Text Editor',
       description: 'Online text editor',
       keywords: 'text, editor, tool'
+    }
+  },
+  {
+    path: 'admin',
+    component: AdminDashboardComponent,
+    canActivate: [adminGuard],
+    data: {
+      title: 'Admin',
+      description: 'Admin page',
+      keywords: 'admin, dashboard, control'
     }
   },
   {
