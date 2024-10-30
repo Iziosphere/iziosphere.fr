@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {HeroSectionComponent} from "../hero-section/hero-section.component";
-import {ActivatedRoute, NavigationEnd, Router, RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {AuthService} from '../../../service/auth.service';
 
 @Component({
@@ -15,14 +15,17 @@ import {AuthService} from '../../../service/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  isLogged: boolean = false;
+  public isLogged = false;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {
   }
 
   ngOnInit() {
     this.authService.authStateChanged.subscribe((logged: boolean) => {
-      this.isLogged = logged;
+      this.isLogged = this.authService.isLoggedIn();
     });
   }
 

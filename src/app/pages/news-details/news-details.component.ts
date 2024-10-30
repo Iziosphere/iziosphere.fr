@@ -68,7 +68,9 @@ export class NewsDetailsComponent implements OnInit {
         }
       },
       error: (err) => {
-        this.router.navigate(['/404']).then(() => this.toastr.error(err.error.message));
+        if(err.status === 404) {
+          this.router.navigate(['/404']).then(() => this.toastr.error(err.error.message));
+        }
       }
     });
   }

@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {IpDataService} from '../../../service/ip-data.service';
 import {IpData} from '../../../models/ip-data.model';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
-import {DatePipe, NgIf} from '@angular/common';
+import {DatePipe, isPlatformBrowser, NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -25,12 +25,18 @@ export class IplocationComponent implements OnInit {
   loading: boolean = false;
   errorMessage: string = '';
 
-  constructor(private ipDataService: IpDataService, private sanitizer: DomSanitizer) { }
+  constructor(
+    private ipDataService: IpDataService,
+    private sanitizer: DomSanitizer,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
-    this.userAgent = navigator.userAgent;
-    this.screenResolution = screen.width + 'x' + screen.height;
-    this.getIpInformation();
+    if (isPlatformBrowser(this.platformId)) {
+      this.userAgent = navigator.userAgent;
+      this.screenResolution = screen.width + 'x' + screen.height;
+      this.getIpInformation();
+    }
   }
 
   getIpInformation(): void {
