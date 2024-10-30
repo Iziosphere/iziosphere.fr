@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { NewsService } from '../../service/news.service';
-import { News } from '../../models/news.model';
-import { ToastrService } from 'ngx-toastr';
-import { DatePipe, NgClass, NgIf } from '@angular/common';
-import { Title, Meta } from '@angular/platform-browser';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import {NewsService} from '../../service/news.service';
+import {News} from '../../models/news.model';
+import {ToastrService} from 'ngx-toastr';
+import {DatePipe, isPlatformBrowser, NgClass, NgIf} from '@angular/common';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-news',
@@ -34,7 +34,8 @@ export class NewsDetailsComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router,
     private titleService: Title,
-    private metaService: Meta
+    private metaService: Meta,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
   }
 
@@ -62,13 +63,14 @@ export class NewsDetailsComponent implements OnInit {
           this.setMetaTags(this.news);
 
 
-
         } else {
-          this.router.navigate(['/404']).then(() => this.toastr.error("News not found."));
+          if (isPlatformBrowser(this.platformId)) {
+            this.router.navigate(['/404']).then(() => this.toastr.error("News not found"));
+          }
         }
       },
       error: (err) => {
-        if(err.status === 404) {
+        if (isPlatformBrowser(this.platformId) && err.status === 404) {
           this.router.navigate(['/404']).then(() => this.toastr.error(err.error.message));
         }
       }
@@ -78,21 +80,21 @@ export class NewsDetailsComponent implements OnInit {
   setMetaTags(news: News) {
     if (!news) return;
     this.titleService.setTitle(news.title);
-    this.metaService.updateTag({ name: 'description', content: news.content.slice(0, 100) });
-    this.metaService.updateTag({ property: 'og:title', content: news.title });
-    this.metaService.updateTag({ property: 'og:type', content: 'article' });
-    this.metaService.updateTag({ property: 'og:url', content: this.router.url });
-    this.metaService.updateTag({ property: 'og:image', content: news.image });
-    this.metaService.updateTag({ property: 'og:description', content: news.content.slice(0, 100) });
-    this.metaService.updateTag({ property: 'article:published_time', content: news.publishedAt.toString() });
-    this.metaService.updateTag({ property: 'article:modified_time', content: news.updatedAt.toString() });
-    this.metaService.updateTag({ property: 'article:author', content: news.author });
-    this.metaService.updateTag({ property: 'article:section', content: news.category.name });
+    this.metaService.updateTag({name: 'description', content: news.content.slice(0, 100)});
+    this.metaService.updateTag({property: 'og:title', content: news.title});
+    this.metaService.updateTag({property: 'og:type', content: 'article'});
+    this.metaService.updateTag({property: 'og:url', content: this.router.url});
+    this.metaService.updateTag({property: 'og:image', content: news.image});
+    this.metaService.updateTag({property: 'og:description', content: news.content.slice(0, 100)});
+    this.metaService.updateTag({property: 'article:published_time', content: news.publishedAt.toString()});
+    this.metaService.updateTag({property: 'article:modified_time', content: news.updatedAt.toString()});
+    this.metaService.updateTag({property: 'article:author', content: news.author});
+    this.metaService.updateTag({property: 'article:section', content: news.category.name});
     // todo this.metaService.updateTag({ property: 'article:tag', content: news.category.name });
-    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.metaService.updateTag({ name: 'twitter:title', content: news.title });
-    this.metaService.updateTag({ name: 'twitter:description', content: news.content.slice(0, 100) });
-    this.metaService.updateTag({ name: 'twitter:image', content: news.image });
+    this.metaService.updateTag({name: 'twitter:card', content: 'summary_large_image'});
+    this.metaService.updateTag({name: 'twitter:title', content: news.title});
+    this.metaService.updateTag({name: 'twitter:description', content: news.content.slice(0, 100)});
+    this.metaService.updateTag({name: 'twitter:image', content: news.image});
   }
 }
 
