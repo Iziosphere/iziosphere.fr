@@ -22,11 +22,11 @@ export class NewsService {
       params = params.set('categoryId', categoryId.toString());
     }
 
-    return this.http.get<NewsFiltered>(this.apiUrl, { params });
+    return this.http.get<NewsFiltered>(this.apiUrl+"/all", { params });
   }
 
   getNewsBySlug(slug: string | null): Observable<NewsBySlug> {
-    return this.http.get<NewsBySlug>(`${this.apiUrl}/${slug}`);
+    return this.http.get<NewsBySlug>(`${this.apiUrl}/slug/${slug}`);
   }
 
 }

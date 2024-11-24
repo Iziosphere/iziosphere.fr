@@ -10,8 +10,10 @@ import { NewsDetailsComponent } from './pages/news-details/news-details.componen
 import { ServicesComponent } from './pages/services/services.component';
 import { AboutComponent } from './pages/about/about.component';
 import { NewsComponent } from './pages/news/news.component';
-import {AdminDashboardComponent} from './pages/admin/admin-dashboard/admin-dashboard.component';
-import {adminGuard} from './guards/admin-guard';
+import { adminGuard } from './guards/admin-guard';
+import { AdminPostsComponent } from './pages/admin/admin-posts/admin-posts.component';
+import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 export const routes: Routes = [
   {
@@ -106,13 +108,18 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminDashboardComponent,
+    component: AdminComponent,
     canActivate: [adminGuard],
     data: {
       title: 'Admin',
       description: 'Admin page',
       keywords: 'admin, dashboard, control'
-    }
+    },
+    children: [
+      { path: 'posts', component: AdminPostsComponent },
+      { path: 'users', component: AdminUsersComponent },
+      { path: '', redirectTo: 'posts', pathMatch: 'full' } // Redirection par défaut
+    ]
   },
   {
     path: '**',
