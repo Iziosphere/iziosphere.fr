@@ -1,4 +1,4 @@
-export interface News {
+export interface Post {
     id: number;
     title: string;
     content: string;
@@ -14,15 +14,33 @@ export interface Category{
   id: number;
   name: string;
 }
+
 export interface NewsBySlug{
   nextTitle: string | null;
   previousTitle: string | null;
-  post: News;
+  post: Post;
   previousSlug: string | null;
   nextSlug: string | null;
 }
 export interface NewsFiltered{
-  data: News[];
+  data: Post[];
   totalItems: number;
   categories: Category[];
+}
+
+
+export enum PostType {
+  NEWS = 'news',
+  RESOURCE = 'resource',
+  PUBLICATION = 'publication',
+}
+
+export interface PostCreateDto{
+  title: string;
+  content: string;
+  slug: string;
+  image: string;
+  categoryId: number;
+  type: PostType;
+  publishedAt: Date;
 }

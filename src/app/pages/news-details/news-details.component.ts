@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
-import {NewsService} from '../../service/news.service';
-import {News} from '../../models/news.model';
+import {PostService} from '../../service/post.service';
+import {Post} from '../../models/news.model';
 import {ToastrService} from 'ngx-toastr';
 import {DatePipe, isPlatformBrowser, NgClass, NgIf} from '@angular/common';
 import {Meta, Title} from '@angular/platform-browser';
@@ -20,7 +20,7 @@ import {Meta, Title} from '@angular/platform-browser';
 })
 export class NewsDetailsComponent implements OnInit {
 
-  news: News | null = null;
+  news: Post | null = null;
   currentUrl: string = '';
   slug: string | null = null;
   previousSlug: string | null = null;
@@ -30,7 +30,7 @@ export class NewsDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private newsService: NewsService,
+    private newsService: PostService,
     private toastr: ToastrService,
     private router: Router,
     private titleService: Title,
@@ -77,7 +77,7 @@ export class NewsDetailsComponent implements OnInit {
     });
   }
 
-  setMetaTags(news: News) {
+  setMetaTags(news: Post) {
     if (!news) return;
     this.titleService.setTitle(news.title);
     this.metaService.updateTag({name: 'description', content: news.content.slice(0, 100)});

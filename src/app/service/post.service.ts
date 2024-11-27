@@ -1,13 +1,13 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { News, NewsBySlug, NewsFiltered } from '../models/news.model';
+import {Post, NewsBySlug, NewsFiltered, PostCreateDto} from '../models/news.model';
 import { API_URL } from './config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewsService {
+export class PostService {
 
   private apiUrl = API_URL + '/posts';
   constructor(private http: HttpClient) { }
@@ -27,6 +27,10 @@ export class NewsService {
 
   getNewsBySlug(slug: string | null): Observable<NewsBySlug> {
     return this.http.get<NewsBySlug>(`${this.apiUrl}/slug/${slug}`);
+  }
+
+  createPost(post: PostCreateDto): Observable<Post>{
+    return this.http.post<Post>(this.apiUrl+"/create",post);
   }
 
 }

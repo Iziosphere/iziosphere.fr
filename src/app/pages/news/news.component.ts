@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../../service/news.service';
-import {Category, News} from '../../models/news.model';
+import { PostService } from '../../service/post.service';
+import {Category, Post} from '../../models/news.model';
 import { DatePipe, NgForOf, NgIf, SlicePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +19,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-  listNews: News[] = [];
+  listNews: Post[] = [];
   totalPages = 1;
   page = 1;
   limit = 5;
@@ -28,7 +28,7 @@ export class NewsComponent implements OnInit {
 
   categories: Category[] = []
 
-  constructor(private newsService: NewsService, private router: Router) { }
+  constructor(private newsService: PostService, private router: Router) { }
 
   ngOnInit() {
     this.loadNews();

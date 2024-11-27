@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {NewsService} from '../../../service/news.service';
+import {PostService} from '../../../service/post.service';
 import {DatePipe} from '@angular/common';
-import { News } from '../../../models/news.model';
+import { Post } from '../../../models/news.model';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -16,11 +16,11 @@ import { RouterLink } from '@angular/router';
 })
 export class Section4HomeComponent implements OnInit {
 
-  news: News[] = [];
+  news: Post[] = [];
   page = 1;
   limit = 3;
   type = 'news';
-  constructor(private newsService: NewsService) {
+  constructor(private newsService: PostService) {
 
   }
 
