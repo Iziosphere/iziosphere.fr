@@ -1,86 +1,62 @@
-<div class="form-container">
-  <h2>Create a New Post</h2>
-  <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
-    <div>
-      <label for="title">Title</label>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        [(ngModel)]="postCreateDto.title"
-        required/>
-    </div>
+<div class="container-fluid">
+  <h1>Create post</h1>
+  <div class="card card-body">
+    <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
 
-    <div>
-      <label for="content">Content</label>
-      <textarea
-        id="content"
-        name="content"
-        [(ngModel)]="postCreateDto.content"
-        rows="5"
-        required>
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input type="text" class="form-control" class="form-control" id="title" name="title"
+          [(ngModel)]="postCreateDto.title" required />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="content">Content</label>
+        <textarea class="form-control" id="content" name="content" [(ngModel)]="postCreateDto.content" rows="5"
+          required>
       </textarea>
-    </div>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label" for="slug">Slug</label>
+        <div class="input-group">
+          <span class="input-group-text">https://iziosphere.fr/news/</span>
+          <input type="text" class="form-control" id="slug" name="slug" [(ngModel)]="postCreateDto.slug" required />
+        </div>
+      </div>
 
-    <div>
-      <label for="slug">Slug</label>
-      <input
-        type="text"
-        id="slug"
-        name="slug"
-        [(ngModel)]="postCreateDto.slug"
-        required/>
-    </div>
+      <div class="mb-3">
+        <label class="form-label" for="image">Image URL</label>
+        <input type="text" class="form-control" id="image" name="image" [(ngModel)]="postCreateDto.image" required />
+      </div>
 
-    <div>
-      <label for="image">Image URL</label>
-      <input
-        type="text"
-        id="image"
-        name="image"
-        [(ngModel)]="postCreateDto.image"
-        required/>
-    </div>
-
-    <div>
-      <label for="categoryId">Category</label>
-      <select
-        id="categoryId"
-        name="categoryId"
-        [(ngModel)]="postCreateDto.categoryId"
-        required>
-        @for (category of categoryList; track category.id) {
-          <option
-            [value]="category.id">
+      <div class="mb-3">
+        <label class="form-label" for="categoryId">Category</label>
+        <select class="form-select" id="categoryId" name="categoryId" [(ngModel)]="postCreateDto.categoryId" required>
+          @for (category of categoryList; track category.id) {
+          <option [value]="category.id">
             {{ category.name }}
           </option>
-        }
-      </select>
-    </div>
+          }
+        </select>
+      </div>
 
-    <div>
-      <label for="type">Post Type</label>
-      <select
-        id="type"
-        name="type"
-        [(ngModel)]="postCreateDto.type"
-        required>
-        <option value="RESOURCE">Ressoure</option>
-        <option value="NEWS">News</option>
-        <option value="PUBLICATION">Publication</option>
-      </select>
-    </div>
+      <div class="mb-3">
+        <label class="form-label" for="type">Post Type</label>
+        <select class="form-select" id="type" name="type" [(ngModel)]="postCreateDto.type" required>
+          <option value="RESOURCE">Ressoure</option>
+          <option value="NEWS">News</option>
+          <option value="PUBLICATION">Publication</option>
+        </select>
+      </div>
 
-    <div>
-      <label for="publishedAt">Published At</label>
-      <input
-        type="date"
-        id="publishedAt"
-        name="publishedAt"
-        [(ngModel)]="postCreateDto.publishedAt"
-        required/>
-    </div>
+      <div class="mb-3">
+        <label class="form-label" for="publishedAt">Published At</label>
+        <input type="date" class="form-control" id="publishedAt" name="publishedAt"
+          [(ngModel)]="postCreateDto.publishedAt" required />
+      </div>
 
-    <button type="submit" [disabled]="postForm.invalid">Create Post</button>
-  </form>
+      <button type="submit" class="btn btn-primary" [disabled]="postForm.invalid">Create Post</button>
+      
+    </form>
+  </div>
 </div>
