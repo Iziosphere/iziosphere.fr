@@ -28,7 +28,7 @@ export interface UserDtoList{
   firstName: string;
   lastName: string;
   email: string;
-  role: RoleDto;
+  role?: RoleDto;
 }
 
 
