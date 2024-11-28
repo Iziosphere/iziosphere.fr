@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, switchMap} from 'rxjs';
 import {API_URL} from './config';
 import {IpDataService} from "./ip-data.service";
@@ -18,7 +18,8 @@ export class VisitorService {
     return this.ipDataService.getIpData().pipe(
         switchMap((ipData: IpData) => {
           const ip = ipData.ip;
-          return this.http.post<string>(`${this.apiUrl}/log`, { ip });
+            const headers = new HttpHeaders({ 'X-Client-IP': ip });
+            return this.http.post<string>(`${this.apiUrl}/log`, {  }, { headers });
         })
     );
   }
