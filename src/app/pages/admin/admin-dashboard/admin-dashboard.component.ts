@@ -19,6 +19,10 @@ export class AdminDashboardComponent implements OnInit {
   todayVisitors: number = 0;
   sinceDate: string = '';
   visitorChangePercentage: number = 0;
+  earnValue= 0;
+  orderValue = 0;
+  averageDuration = 0;
+
 
   chartData: { data: number[]; label: string; borderColor: string; backgroundColor: string; fill: boolean; }[] = [
     {
