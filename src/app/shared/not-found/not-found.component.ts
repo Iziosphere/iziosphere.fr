@@ -1,17 +1,13 @@
-import { Component } from '@angular/core';
-import {FooterHomeComponent} from "../footer/footer-home.component";
-import {NavbarComponent} from "../header/navbar/navbar.component";
+import {Component} from '@angular/core';
 import {RouterLink} from '@angular/router';
 
 @Component({
-    selector: 'app-not-found',
-    imports: [
-        FooterHomeComponent,
-        NavbarComponent,
-        RouterLink
-    ],
-    templateUrl: './not-found.component.html',
-    styleUrl: './not-found.component.scss'
+  selector: 'app-not-found',
+  imports: [
+    RouterLink
+  ],
+  templateUrl: './not-found.component.html',
+  styleUrl: './not-found.component.scss'
 })
 export class NotFoundComponent {
 

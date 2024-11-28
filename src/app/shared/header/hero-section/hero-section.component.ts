@@ -1,14 +1,10 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import * as AOS from 'aos';
-import {NgForOf} from '@angular/common';
-import {NavbarComponent} from "../navbar/navbar.component";
+import {Component} from '@angular/core';
+
 @Component({
-    selector: 'app-hero-section',
-    imports: [
-        NgForOf
-    ],
-    templateUrl: './hero-section.component.html',
-    styleUrl: './hero-section.component.scss'
+  selector: 'app-hero-section',
+  imports: [],
+  templateUrl: './hero-section.component.html',
+  styleUrl: './hero-section.component.scss'
 })
 export class HeroSectionComponent {
   categories = [

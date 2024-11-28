@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { PostService } from '../../service/post.service';
+import {Component, OnInit} from '@angular/core';
+import {PostService} from '../../service/post.service';
 import {Category, Post} from '../../models/news.model';
-import { DatePipe, NgForOf, NgIf, SlicePipe } from '@angular/common';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {DatePipe, NgForOf, SlicePipe} from '@angular/common';
+import {Router} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @Component({
-    selector: 'app-news',
-    imports: [
-        NgForOf,
-        DatePipe,
-        NgIf,
-        FormsModule,
-        SlicePipe,
-    ],
-    templateUrl: './news.component.html',
-    styleUrls: ['./news.component.scss']
+  selector: 'app-news',
+  imports: [
+    NgForOf,
+    DatePipe,
+    FormsModule,
+    SlicePipe,
+  ],
+  templateUrl: './news.component.html',
+  styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
   listNews: Post[] = [];
@@ -23,18 +22,19 @@ export class NewsComponent implements OnInit {
   page = 1;
   limit = 5;
   categoryId: number | undefined;
-  typeFilter= 'news'
+  typeFilter = 'news'
 
   categories: Category[] = []
 
-  constructor(private newsService: PostService, private router: Router) { }
+  constructor(private newsService: PostService, private router: Router) {
+  }
 
   ngOnInit() {
     this.loadNews();
   }
 
   loadNews() {
-    this.newsService.getNews(this.page, this.limit,this.typeFilter,this.categoryId).subscribe({
+    this.newsService.getNews(this.page, this.limit, this.typeFilter, this.categoryId).subscribe({
       next: (news) => {
         this.listNews = news.data;
         const totalItems = news.totalItems;

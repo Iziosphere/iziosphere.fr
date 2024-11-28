@@ -7,7 +7,6 @@ import {ERole} from '../../../models/user.model';
 @Component({
     selector: 'app-navbar',
     imports: [
-        HeroSectionComponent,
         RouterLink
     ],
     templateUrl: './navbar.component.html',

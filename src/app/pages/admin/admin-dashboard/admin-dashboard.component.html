@@ -1,1 +1,44 @@
-<p>admin-dashboard works!</p>
+<div class="admin-dashboard container mt-4">
+  <h1 class="text-center mb-4">Tableau de bord Administrateur</h1>
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card text-center shadow">
+        <div class="card-header bg-primary text-white">
+          <h3>Visites Aujourd'hui</h3>
+        </div>
+        <div class="card-body">
+          <p class="display-4">{{ todayVisitors }}</p>
+          <p class="text-muted">Nombre de visites aujourd'hui</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="card shadow">
+        <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+          <h3>Graphique des visites quotidiennes depuis</h3>
+          <input
+            type="date"
+            [(ngModel)]="sinceDate"
+            class="form-control w-auto"
+            (change)="loadVisitsSince()"
+          />
+        </div>
+        <div class="card-body">
+          <canvas baseChart
+                  [datasets]="chartData"
+                  [labels]="chartLabels"
+                  [options]="chartOptions"
+                  [type]="'line'"
+                  [legend]="true">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,19 +3,18 @@ import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {PostService} from '../../service/post.service';
 import {Post} from '../../models/news.model';
 import {ToastrService} from 'ngx-toastr';
-import {DatePipe, isPlatformBrowser, NgClass, NgIf} from '@angular/common';
+import {DatePipe, isPlatformBrowser, NgIf} from '@angular/common';
 import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
-    selector: 'app-news',
-    imports: [
-        RouterLink,
-        NgIf,
-        NgClass,
-        DatePipe
-    ],
-    templateUrl: './news-details.component.html',
-    styleUrls: ['./news-details.component.scss']
+  selector: 'app-news',
+  imports: [
+    RouterLink,
+    NgIf,
+    DatePipe
+  ],
+  templateUrl: './news-details.component.html',
+  styleUrls: ['./news-details.component.scss']
 })
 export class NewsDetailsComponent implements OnInit {
 
