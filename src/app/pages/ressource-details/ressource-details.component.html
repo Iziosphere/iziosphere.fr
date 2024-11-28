@@ -1,0 +1,136 @@
+<div class="container py-5" *ngIf="news; else loading">
+
+  <div class="row">
+    <div class="col-md-9">
+      <img class="img-fluid mb-3" [src]="news.image" alt="News Image">
+      <div class="py-3">
+        <h1>{{ news.title }}</h1>
+        <p class="text-muted">Published: {{ news.publishedAt | date: 'dd/MM/yyyy' }}</p>
+      </div>
+      <hr>
+      <div class="py-5" [innerHTML]="news.content"></div>
+
+      <p class="h4">Tags</p>
+      <div class="hstack gap-3">
+        <a class="badge bg-light link-hover-primary border" href="#">Tag 1</a>
+        <a class="badge bg-light link-hover-primary border" href="#">Tag 2</a>
+        <a class="badge bg-light link-hover-primary border" href="#">Tag 3</a>
+        <a class="badge bg-light link-hover-primary border" href="#">Tag 4</a>
+        <a class="badge bg-light link-hover-primary border" href="#">Tag 5</a>
+      </div>
+
+      <hr>
+      <div class="py-3">
+        <div class="text-center mb-5">
+          <p class="h3">Share Article</p>
+          <div class="hstack gap-3 align-content-center justify-content-center">
+            <a class="btn btn-lg" href="https://www.facebook.com/sharer/sharer.php?u={{ currentUrl }}" target="_blank"
+               style="--bs-btn-bg: #3b5998; --bs-btn-hover-bg: #2d4373; color: white;">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a class="btn btn-lg" href="https://twitter.com/intent/tweet?text={{ news.title }}&url={{ currentUrl }}"
+               target="_blank" style="--bs-btn-bg: #1da1f2; --bs-btn-hover-bg: #0d95e8; color: white;">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a class="btn btn-lg"
+               href="https://pinterest.com/pin/create/button/?url={{ currentUrl }}&media={{ news.image }}&description={{ news.title }}"
+               target="_blank" style="--bs-btn-bg: #bd081c; --bs-btn-hover-bg: #8c0615; color: white;">
+              <i class="fab fa-pinterest"></i>
+            </a>
+            <a class="btn btn-lg"
+               href="https://www.linkedin.com/shareArticle?mini=true&url={{ currentUrl }}&title={{ news.title }}"
+               target="_blank" style="--bs-btn-bg: #0077b5; --bs-btn-hover-bg: #005582; color: white;">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div
+            class="col-md-5 hstack gap-3 position-relative justify-content-start justify-content-md-start text-start mb-3">
+            @if (previousSlug) {
+              <a class="btn btn-lg btn-outline-primary border stretched-link" [routerLink]="['/news', previousSlug]"
+                 aria-label="Previous">
+                <i class="fas fa-chevron-left"></i>
+              </a>
+              <div>
+                <p class="text-primary m-0">
+                  Previous
+                </p>
+                <p class="fw-semibold m-0">
+                  {{ previousTitle }}
+                </p>
+              </div>
+            }
+          </div>
+
+          <div class="d-none d-md-block col-md-2 text-center align-self-center">
+            @if (nextSlug || previousSlug) {
+              <a class="link-secondary fs-3" href="#" [routerLink]="['/news']" aria-label="More">
+                <i class="fa-solid fa-ellipsis"></i>
+              </a>
+            }
+          </div>
+
+          <div class="col-md-5 hstack gap-3 position-relative justify-content-start justify-content-md-end text-md-end text-start mb-3">
+            @if (nextSlug) {
+              <a class="order-md-2 order-1 btn btn-lg btn-outline-primary border stretched-link" [routerLink]="['/news', nextSlug]"
+                 aria-label="Next">
+                <i class="fas fa-chevron-right"></i>
+              </a>
+              <div class="order-md-1 order-2">
+                <p class="text-primary m-0">
+                  Next
+                </p>
+                <p class="fw-semibold m-0">
+                  {{ nextTitle }}
+                </p>
+              </div>
+            }
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 d-none d-md-block">
+      <div class="input-group mb-5">
+        <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+               aria-describedby="button-addon2">
+        <button class="btn btn-primary" type="button" id="button-addon2">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <div class="mb-5">
+        <p class="h4 mb-3">Categories</p>
+        <ul class="nav flex-column" style="--bs-nav-link-color: #000">
+          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-chevron-right text-primary me-2"></i>
+            Category 1</a></li>
+          <!-- Repeat for other categories -->
+        </ul>
+      </div>
+
+      <div class="mb-5">
+        <p class="h4 mb-3">Recent News</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item hstack gap-3">
+            <img src="https://placehold.co/75x75/EEE/31343C" alt="News Image">
+            <div>
+              <h6 class="m-0">News Title</h6>
+              <p class="text-muted m-0"><i class="text-primary fa-regular fa-clock"></i> 2021-09-01</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="text-center py-5">
+    <p class="h3">Loading news...</p>
+  </div>
+</ng-template>

@@ -17,6 +17,8 @@ import { AdminComponent } from './pages/admin/admin.component';
 import {AdminPostsListComponent} from './pages/admin/admin-posts-list/admin-posts-list.component';
 import {AdminDashboardComponent} from './pages/admin/admin-dashboard/admin-dashboard.component';
 import {AdminRolesListComponent} from './pages/admin/admin-roles-list/admin-roles-list.component';
+import {RessourcesComponent} from './pages/ressources/ressources.component';
+import {RessourceDetailsComponent} from './pages/ressource-details/ressource-details.component';
 
 export const routes: Routes = [
   {
@@ -85,6 +87,24 @@ export const routes: Routes = [
   {
     path: 'news/:slug',
     component: NewsDetailsComponent,
+    data: {
+      title: 'News Details',
+      description: 'Detailed news article',
+      keywords: 'news, details, article'
+    }
+  },
+  {
+    path: 'ressources',
+    component: RessourcesComponent,
+    data: {
+      title: 'News',
+      description: 'Latest news and updates',
+      keywords: 'news, updates, articles'
+    }
+  },
+  {
+    path: 'ressources/:slug',
+    component: RessourceDetailsComponent,
     data: {
       title: 'News Details',
       description: 'Detailed news article',
