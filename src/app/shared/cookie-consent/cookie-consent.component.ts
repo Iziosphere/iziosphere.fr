@@ -3,11 +3,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-cookie-consent',
-  standalone: true,
-  imports: [NgIf],
-  templateUrl: './cookie-consent.component.html',
-  styleUrls: ['./cookie-consent.component.scss']
+    selector: 'app-cookie-consent',
+    imports: [NgIf],
+    templateUrl: './cookie-consent.component.html',
+    styleUrls: ['./cookie-consent.component.scss']
 })
 export class CookieConsentComponent {
   showBanner = false;

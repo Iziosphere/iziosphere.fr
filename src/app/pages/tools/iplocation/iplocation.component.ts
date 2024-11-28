@@ -6,15 +6,14 @@ import {DatePipe, isPlatformBrowser, NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'app-iplocation',
-  standalone: true,
-  imports: [
-    DatePipe,
-    FormsModule,
-    NgIf
-  ],
-  templateUrl: './iplocation.component.html',
-  styleUrl: './iplocation.component.scss'
+    selector: 'app-iplocation',
+    imports: [
+        DatePipe,
+        FormsModule,
+        NgIf
+    ],
+    templateUrl: './iplocation.component.html',
+    styleUrl: './iplocation.component.scss'
 })
 export class IplocationComponent implements OnInit {
   ipData!: IpData | null;

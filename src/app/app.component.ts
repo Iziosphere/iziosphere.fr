@@ -20,11 +20,10 @@ import {Meta, Title} from '@angular/platform-browser';
 import { CookieConsentComponent } from './shared/cookie-consent/cookie-consent.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, FormsModule, NgIf, HeroSectionComponent, Section1HomeComponent, Section2HomeComponent, Section3HomeComponent, Section4HomeComponent, Section5HomeComponent, Section6HomeComponent, FooterHomeComponent, NotFoundComponent, NavbarComponent, HeaderComponent, CookieConsentComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [RouterOutlet, FormsModule, NgIf, HeroSectionComponent, Section1HomeComponent, Section2HomeComponent, Section3HomeComponent, Section4HomeComponent, Section5HomeComponent, Section6HomeComponent, FooterHomeComponent, NotFoundComponent, NavbarComponent, HeaderComponent, CookieConsentComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'iziosphere';

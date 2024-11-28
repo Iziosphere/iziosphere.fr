@@ -5,15 +5,14 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {BreadcrumbComponent} from "./breadcrumb/breadcrumb.component";
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [
-    HeroSectionComponent,
-    NavbarComponent,
-    BreadcrumbComponent
-],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+    selector: 'app-header',
+    imports: [
+        HeroSectionComponent,
+        NavbarComponent,
+        BreadcrumbComponent
+    ],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
   isHomeRoute: boolean = false;

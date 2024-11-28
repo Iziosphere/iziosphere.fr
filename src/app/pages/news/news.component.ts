@@ -6,17 +6,16 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-news',
-  standalone: true,
-  imports: [
-    NgForOf,
-    DatePipe,
-    NgIf,
-    FormsModule,
-    SlicePipe,
-  ],
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+    selector: 'app-news',
+    imports: [
+        NgForOf,
+        DatePipe,
+        NgIf,
+        FormsModule,
+        SlicePipe,
+    ],
+    templateUrl: './news.component.html',
+    styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
   listNews: Post[] = [];

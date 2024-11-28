@@ -7,16 +7,15 @@ import {DatePipe, isPlatformBrowser, NgClass, NgIf} from '@angular/common';
 import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-news',
-  standalone: true,
-  imports: [
-    RouterLink,
-    NgIf,
-    NgClass,
-    DatePipe
-  ],
-  templateUrl: './news-details.component.html',
-  styleUrls: ['./news-details.component.scss']
+    selector: 'app-news',
+    imports: [
+        RouterLink,
+        NgIf,
+        NgClass,
+        DatePipe
+    ],
+    templateUrl: './news-details.component.html',
+    styleUrls: ['./news-details.component.scss']
 })
 export class NewsDetailsComponent implements OnInit {
 

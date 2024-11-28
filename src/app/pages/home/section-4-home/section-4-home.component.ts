@@ -5,14 +5,13 @@ import { Post } from '../../../models/news.model';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-section-4-home',
-  standalone: true,
-  imports: [
-    DatePipe,
-    RouterLink
-  ],
-  templateUrl: './section-4-home.component.html',
-  styleUrl: './section-4-home.component.scss'
+    selector: 'app-section-4-home',
+    imports: [
+        DatePipe,
+        RouterLink
+    ],
+    templateUrl: './section-4-home.component.html',
+    styleUrl: './section-4-home.component.scss'
 })
 export class Section4HomeComponent implements OnInit {
 

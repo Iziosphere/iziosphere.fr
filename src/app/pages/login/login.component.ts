@@ -6,14 +6,13 @@ import {ToastrService} from 'ngx-toastr';
 import {FormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [
-    RouterLink,
-    FormsModule
-  ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+    selector: 'app-login',
+    imports: [
+        RouterLink,
+        FormsModule
+    ],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss'
 })
 export class LoginComponent {
   loginRequest: UserLoginDto = {email: '', password: ''};

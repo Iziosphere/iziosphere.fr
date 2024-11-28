@@ -5,14 +5,13 @@ import {AuthService} from '../../../service/auth.service';
 import {ERole} from '../../../models/user.model';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [
-    HeroSectionComponent,
-    RouterLink
-  ],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+    selector: 'app-navbar',
+    imports: [
+        HeroSectionComponent,
+        RouterLink
+    ],
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit {
 

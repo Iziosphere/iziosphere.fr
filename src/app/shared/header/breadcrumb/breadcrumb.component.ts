@@ -10,14 +10,13 @@ export interface Breadcrumb {
 }
 
 @Component({
-  selector: 'app-breadcrumb',
-  standalone: true,
-  imports: [
-    RouterLink,
-    CommonModule,
-  ],
-  templateUrl: './breadcrumb.component.html',
-  styleUrls: ['./breadcrumb.component.scss']
+    selector: 'app-breadcrumb',
+    imports: [
+        RouterLink,
+        CommonModule,
+    ],
+    templateUrl: './breadcrumb.component.html',
+    styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent implements OnInit {
   breadcrumbs: Breadcrumb[] = [];

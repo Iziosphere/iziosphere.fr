@@ -6,14 +6,13 @@ import {ToastrService} from 'ngx-toastr';
 import {FormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
-  imports: [
-    RouterLink,
-    FormsModule
-  ],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+    selector: 'app-register',
+    imports: [
+        RouterLink,
+        FormsModule
+    ],
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
   registerRequest: UserCreateDto = {firstName: '', lastName: '', email: '', password: ''};

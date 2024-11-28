@@ -9,8 +9,7 @@ import {Section5HomeComponent} from "./section-5-home/section-5-home.component";
 import {Section6HomeComponent} from "./section-6-home/section-6-home.component";
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
+    selector: 'app-home',
     imports: [
         FooterHomeComponent,
         HeroSectionComponent,
@@ -21,8 +20,8 @@ import {Section6HomeComponent} from "./section-6-home/section-6-home.component";
         Section5HomeComponent,
         Section6HomeComponent
     ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 

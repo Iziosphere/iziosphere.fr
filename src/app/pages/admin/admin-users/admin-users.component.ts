@@ -4,13 +4,12 @@ import {UserService} from '../../../service/user.service';
 import {FormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'app-admin-users',
-  standalone: true,
-  imports: [
-    FormsModule
-  ],
-  templateUrl: './admin-users.component.html',
-  styleUrls: ['./admin-users.component.scss']
+    selector: 'app-admin-users',
+    imports: [
+        FormsModule
+    ],
+    templateUrl: './admin-users.component.html',
+    styleUrls: ['./admin-users.component.scss']
 })
 export class AdminUsersComponent implements OnInit {
   userList: UserDtoList[] = [];

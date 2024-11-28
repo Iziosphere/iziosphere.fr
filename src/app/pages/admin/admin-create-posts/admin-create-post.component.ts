@@ -7,13 +7,12 @@ import {ToastrService} from 'ngx-toastr';
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-admin-create-posts',
-  standalone: true,
-  imports: [
-    FormsModule
-  ],
-  templateUrl: './admin-create-post.component.html',
-  styleUrl: './admin-create-post.component.scss'
+    selector: 'app-admin-create-posts',
+    imports: [
+        FormsModule
+    ],
+    templateUrl: './admin-create-post.component.html',
+    styleUrl: './admin-create-post.component.scss'
 })
 export class AdminCreatePostComponent implements OnInit {
 

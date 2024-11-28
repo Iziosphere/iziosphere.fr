@@ -4,14 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-text-editor',
-  standalone: true,
-  imports: [
-    QuillModule,
-    FormsModule,
-  ],
-  templateUrl: './text-editor.component.html',
-  styleUrls: ['./text-editor.component.scss']
+    selector: 'app-text-editor',
+    imports: [
+        QuillModule,
+        FormsModule,
+    ],
+    templateUrl: './text-editor.component.html',
+    styleUrls: ['./text-editor.component.scss']
 })
 export class TextEditorComponent {
   content: string = '';

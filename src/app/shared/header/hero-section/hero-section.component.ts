@@ -3,14 +3,12 @@ import * as AOS from 'aos';
 import {NgForOf} from '@angular/common';
 import {NavbarComponent} from "../navbar/navbar.component";
 @Component({
-  selector: 'app-hero-section',
-  standalone: true,
+    selector: 'app-hero-section',
     imports: [
         NgForOf
     ],
-  templateUrl: './hero-section.component.html',
-  styleUrl: './hero-section.component.scss',
-
+    templateUrl: './hero-section.component.html',
+    styleUrl: './hero-section.component.scss'
 })
 export class HeroSectionComponent {
   categories = [
