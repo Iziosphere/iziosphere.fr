@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {PostService} from '../../service/post.service';
-import {Post} from '../../models/news.model';
+import {NewsFiltered, Post} from '../../models/news.model';
 import {ToastrService} from 'ngx-toastr';
 import {DatePipe, isPlatformBrowser, NgIf} from '@angular/common';
 import {Meta, Title} from '@angular/platform-browser';
@@ -17,7 +17,7 @@ import {Meta, Title} from '@angular/platform-browser';
   styleUrls: ['./news-details.component.scss']
 })
 export class NewsDetailsComponent implements OnInit {
-
+  recentRessource? : NewsFiltered;
   news: Post | null = null;
   currentUrl: string = '';
   slug: string | null = null;
@@ -42,6 +42,11 @@ export class NewsDetailsComponent implements OnInit {
       this.slug = params.get('slug');
       if (this.slug) {
         this.loadNews();
+      }
+    });
+    this.newsService.getNews(1,3,"news").subscribe({
+      next: (news) => {
+        this.recentRessource = news;
       }
     });
   }

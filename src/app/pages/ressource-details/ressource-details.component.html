@@ -75,7 +75,7 @@
 
           <div class="col-md-5 hstack gap-3 position-relative justify-content-start justify-content-md-end text-md-end text-start mb-3">
             @if (nextSlug) {
-              <a class="order-md-2 order-1 btn btn-lg btn-outline-primary border stretched-link" [routerLink]="['/news', nextSlug]"
+              <a class="order-md-2 order-1 btn btn-lg btn-outline-primary border stretched-link" [routerLink]="['/ressources', nextSlug]"
                  aria-label="Next">
                 <i class="fas fa-chevron-right"></i>
               </a>
@@ -104,24 +104,26 @@
       </div>
 
       <div class="mb-5">
-        <p class="h4 mb-3">Categories</p>
+        <p class="h4 mb-3">Categorie</p>
         <ul class="nav flex-column" style="--bs-nav-link-color: #000">
           <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-chevron-right text-primary me-2"></i>
-            Category 1</a></li>
+            {{news.category.name}}</a></li>
           <!-- Repeat for other categories -->
         </ul>
       </div>
 
       <div class="mb-5">
-        <p class="h4 mb-3">Recent News</p>
+        <p class="h4 mb-3">Recent Ressources</p>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item hstack gap-3">
-            <img src="https://placehold.co/75x75/EEE/31343C" alt="News Image">
-            <div>
-              <h6 class="m-0">News Title</h6>
-              <p class="text-muted m-0"><i class="text-primary fa-regular fa-clock"></i> 2021-09-01</p>
-            </div>
-          </li>
+          @for(ressourceFilter of recentRessource?.data; track ressourceFilter.id) {
+            <li class="list-group-item hstack gap-3 cursor-pointer" [routerLink]="['/ressources/'+ ressourceFilter.slug]">
+              <img style="width: 100px" [src]="ressourceFilter.image" alt="Ressource Image">
+              <div>
+                <h6 class="m-0">{{ ressourceFilter.title }}</h6>
+                <p class="text-muted m-0"><i class="text-primary fa-regular fa-clock"></i> {{ ressourceFilter.publishedAt | date }}</p>
+              </div>
+            </li>
+          }
 
         </ul>
       </div>
@@ -131,6 +133,6 @@
 
 <ng-template #loading>
   <div class="text-center py-5">
-    <p class="h3">Loading news...</p>
+    <p class="h3">Loading ressources...</p>
   </div>
 </ng-template>

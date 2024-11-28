@@ -1,5 +1,5 @@
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
-import {Post} from '../../models/news.model';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {NewsFiltered, Post} from '../../models/news.model';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {PostService} from '../../service/post.service';
 import {ToastrService} from 'ngx-toastr';
@@ -16,7 +16,8 @@ import {DatePipe, isPlatformBrowser, NgIf} from '@angular/common';
   templateUrl: './ressource-details.component.html',
   styleUrl: './ressource-details.component.scss'
 })
-export class RessourceDetailsComponent {
+export class RessourceDetailsComponent implements OnInit {
+  recentRessource? : NewsFiltered;
   news: Post | null = null;
   currentUrl: string = '';
   slug: string | null = null;
@@ -41,6 +42,11 @@ export class RessourceDetailsComponent {
       this.slug = params.get('slug');
       if (this.slug) {
         this.loadNews();
+      }
+    });
+    this.newsService.getNews(1,3,"resource").subscribe({
+      next: (news) => {
+        this.recentRessource = news;
       }
     });
   }
