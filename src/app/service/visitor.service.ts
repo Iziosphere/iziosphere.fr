@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, switchMap} from 'rxjs';
 import {API_URL} from './config';
+import {IpDataService} from "./ip-data.service";
+import {IpData} from "../models/ip-data.model";
 
 @Injectable({
   providedIn: 'root',
@@ -9,12 +11,18 @@ import {API_URL} from './config';
 export class VisitorService {
   private apiUrl = API_URL+'/visitor'; //
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private ipDataService : IpDataService) {
   }
 
   logVisit(): Observable<string> {
-    return this.http.post<string>(`${this.apiUrl}/log`, {});
+    return this.ipDataService.getIpData().pipe(
+        switchMap((ipData: IpData) => {
+          const ip = ipData.ip;
+          return this.http.post<string>(`${this.apiUrl}/log`, { ip });
+        })
+    );
   }
+
 
   getTodayVisitors(): Observable<number> {
     return this.http.get<number>(`${this.apiUrl}/today`);
