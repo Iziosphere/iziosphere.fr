@@ -1,248 +1,51 @@
 <h1 class="h3 mb-3">Users</h1>
 
-<div id="status-message"></div>
-
-<form class="row gx-3 align-items-center" action="https://demo.azuriom.com/admin/users" method="GET" role="search"
-    data-dashlane-rid="28dbddab1a26e972">
-    <div class="col-md-4 col-12 mb-3">
-        <label class="visually-hidden" for="searchInput">
-            Search
-        </label>
-
-        <div class="input-group">
-            <input type="search" class="form-control" id="searchInput" name="search" value="" placeholder="Search"
-                data-dashlane-rid="44434a0908b2a367">
-
-            <button type="submit" class="btn btn-primary" data-dashlane-label="true"
-                data-dashlane-rid="c1292c819235b761">
-                <i class="bi bi-search"></i>
-            </button>
-        </div>
-    </div>
-</form>
-
-<div class="card shadow mb-4">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Email Address</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Registered at</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-                        <th scope="row">
-                            1
-
-                            <i class="bi bi-trophy text-warning" data-bs-toggle="tooltip" aria-label="Admin"
-                                data-bs-original-title="Admin"></i>
-                        </th>
-                        <td>
-                            Admin
-                        </td>
-                        <td>
-                            admin-demoazuriom.com
-
-                            <i class="bi bi-envelope-check text-info" data-bs-toggle="tooltip"
-                                aria-label="Email Address verified" data-bs-original-title="Email Address verified"></i>
-
-                        </td>
-                        <td>
-                            <span class="badge" style="color: #fff; background: #ff0e0b;">
-                                <i class="bi bi-trophy"></i> Admin
-                            </span>
-                        </td>
-                        <td>
-                            November 30, 2019
-                        </td>
-                        <td>
-                            <a href="https://demo.azuriom.com/admin/users/1/edit" class="mx-1" data-bs-toggle="tooltip"
-                                aria-label="Edit" data-bs-original-title="Edit"><i class="bi bi-pencil-square"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            2
-
-                        </th>
-                        <td>
-                            Mod
-                        </td>
-                        <td>
-                            modazuriom.com
-
-                            <i class="bi bi-envelope-check text-info" data-bs-toggle="tooltip"
-                                aria-label="Email Address verified" data-bs-original-title="Email Address verified"></i>
-
-                        </td>
-                        <td>
-                            <span class="badge" style="color: #fff; background: #3f51b5;">
-                                <i class="bi bi-shield-check"></i> Mod
-                            </span>
-                        </td>
-                        <td>
-                            November 30, 2019
-                        </td>
-                        <td>
-                            <a href="https://demo.azuriom.com/admin/users/2/edit" class="mx-1" data-bs-toggle="tooltip"
-                                aria-label="Edit" data-bs-original-title="Edit"><i class="bi bi-pencil-square"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            3
-
-                        </th>
-                        <td>
-                            User
-                        </td>
-                        <td>
-                            contactazuriom.com
-
-
-                        </td>
-                        <td>
-                            <span class="badge" style="color: #fff; background: #5b5757;">
-                                Member
-                            </span>
-                        </td>
-                        <td>
-                            November 30, 2019
-                        </td>
-                        <td>
-                            <a href="https://demo.azuriom.com/admin/users/3/edit" class="mx-1" data-bs-toggle="tooltip"
-                                aria-label="Edit" data-bs-original-title="Edit"><i class="bi bi-pencil-square"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            4
-
-                        </th>
-                        <td>
-                            Banned
-                        </td>
-                        <td>
-                            bannedazuriom.com
-
-                            <i class="bi bi-envelope-check text-info" data-bs-toggle="tooltip"
-                                aria-label="Email Address verified" data-bs-original-title="Email Address verified"></i>
-
-                        </td>
-                        <td>
-                            <span class="badge" style="color: #fff; background: #5b5757;">
-                                Member
-                            </span>
-                        </td>
-                        <td>
-                            November 29, 2019
-                        </td>
-                        <td>
-                            <a href="https://demo.azuriom.com/admin/users/4/edit" class="mx-1" data-bs-toggle="tooltip"
-                                aria-label="Edit" data-bs-original-title="Edit"><i class="bi bi-pencil-square"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            6
-
-                            <i class="bi bi-trophy text-warning" data-bs-toggle="tooltip" aria-label="Admin"
-                                data-bs-original-title="Admin"></i>
-                        </th>
-                        <td>
-                            AzuriomStaff
-                        </td>
-                        <td>
-                            adminazuriom.com
-
-                            <i class="bi bi-envelope-check text-info" data-bs-toggle="tooltip"
-                                aria-label="Email Address verified" data-bs-original-title="Email Address verified"></i>
-
-                        </td>
-                        <td>
-                            <span class="badge" style="color: #fff; background: #ff0e0b;">
-                                <i class="bi bi-trophy"></i> Admin
-                            </span>
-                        </td>
-                        <td>
-                            December 1, 2019
-                        </td>
-                        <td>
-                            <a href="https://demo.azuriom.com/admin/users/6/edit" class="mx-1" data-bs-toggle="tooltip"
-                                aria-label="Edit" data-bs-original-title="Edit"><i class="bi bi-pencil-square"></i></a>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-
-
-
-        <a class="btn btn-primary" href="https://demo.azuriom.com/admin/users/create">
-            <i class="bi bi-plus-lg"></i> Add
-        </a>
-
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#notificationModal">
-            <i class="bi bi-megaphone"></i> Send a notification
-        </button>
-    </div>
+<div class="mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search by name or email"
+    [(ngModel)]="searchTerm"
+    (input)="filterUsers()"
+  />
 </div>
 
-<div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationLabel"
-    aria-modal="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="notificationLabel">
-                    Send a notification
-                </h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <h3>Send a notification to all users</h3>
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email Address</th>
+          <th scope="col">Role</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @for(user of filteredUsers; track user.id) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role?.name }}</td>
+          <td>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="deleteUser(user.id)"
+              title="Delete"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+          }
 
-                <form method="POST" action="https://demo.azuriom.com/admin/users/notify">
-                    <input type="hidden" name="_token" value="S4A1S0JNoZZu4O1La7LBwXXSJDlfbk8LDw7rsHDW"
-                        autocomplete="off">
-                    <div class="mb-3">
-                        <label class="form-label" for="contentInput">Content</label>
-                        <input type="text" class="form-control " id="contentInput" name="content" required=""
-                            maxlength="100">
-
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label" for="levelSelect">Level</label>
-                        <select class="form-select " id="levelSelect" name="level" required="">
-                            <option value="info">
-                                Information
-                            </option>
-                            <option value="success">
-                                Success
-                            </option>
-                            <option value="warning">
-                                Warning
-                            </option>
-                            <option value="danger">
-                                Danger
-                            </option>
-                        </select>
-
-                    </div>
-
-                    <button class="btn btn-warning" type="submit">
-                        <i class="bi bi-megaphone"></i> Send
-                    </button>
-                </form>
-            </div>
-        </div>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

@@ -17,6 +17,9 @@ export class UserService {
     return this.http.get<UserDto>(`${this.apiurl}/${userId}`);
   }
 
+  public getAllUsers(): Observable<UserDtoList[]> {
+    return this.http.get<UserDtoList[]>(`${this.apiurl}/all`);
+  }
 
   public getMyInfos(): Observable<UserDto> {
     return this.http.get<UserDto>(`${this.apiurl}/myinfos`);
@@ -26,4 +29,7 @@ export class UserService {
     return this.http.get<UserDtoList[]>(`${this.apiurl}/search?term=${term}`);
   }
 
+  deleteUser(userId: number): Observable<any> {
+    return this.http.delete(`${this.apiurl}/${userId}`);
+  }
 }
