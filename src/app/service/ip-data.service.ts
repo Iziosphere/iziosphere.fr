@@ -16,4 +16,8 @@ export class IpDataService {
     return this.http.get<IpData>(url);
   }
 
+  public getClientIp(): Observable<{ ip: string }> {
+    return this.http.get<{ ip: string }>('https://api.ipify.org?format=json');
+  }
+
 }

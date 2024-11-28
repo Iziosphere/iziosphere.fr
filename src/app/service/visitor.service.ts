@@ -15,9 +15,9 @@ export class VisitorService {
   }
 
   logVisit(): Observable<string> {
-    return this.ipDataService.getIpData().pipe(
-        switchMap((ipData: IpData) => {
-          const ip = ipData.ip;
+    return this.ipDataService.getClientIp().pipe(
+        switchMap((response) => {
+          const ip = response.ip;
           return this.http.post<string>(`${this.apiUrl}/log`, { ip });
         })
     );
