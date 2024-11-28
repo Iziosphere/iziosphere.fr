@@ -23,7 +23,7 @@ export class AdminDashboardComponent implements OnInit {
     {
       data: [],
       label: 'Visites',
-      borderColor: 'rgba(75,192,192,1)',
+      borderColor: '#205292',
       backgroundColor: 'rgba(75,192,192,0.2)',
       fill: true,
     },
@@ -31,13 +31,28 @@ export class AdminDashboardComponent implements OnInit {
   chartLabels: string[] = [];
   chartOptions: ChartConfiguration<'line'>['options'] = {
     responsive: true,
-    plugins: {
-      legend: {
-        display: true,
-        position: 'top' as const,
+    maintainAspectRatio: false,
+    elements: {
+      line: {
+        tension: 0.4  // smooth lines
       },
     },
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        intersect: false,
+      },
+      filler: {
+        propagate: false,
+      },
+    },
+    hover: {
+      intersect: true,
+    }
   };
+
 
   constructor(
     private visitorService: VisitorService,
@@ -54,7 +69,7 @@ export class AdminDashboardComponent implements OnInit {
 
   setDefaultSinceDate(): void {
     const now = new Date();
-    this.sinceDate = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0];
+    this.sinceDate = new Date(now.setDate(now.getDate() - 7)).toISOString().split('T')[0];
   }
 
   loadTodayVisitors(): void {
