@@ -4,17 +4,18 @@ import {PostService} from '../../../service/post.service';
 import {Category, PostCreateDto, PostType} from '../../../models/news.model';
 import {FormsModule} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-admin-posts',
+  selector: 'app-admin-create-posts',
   standalone: true,
   imports: [
     FormsModule
   ],
-  templateUrl: './admin-posts.component.html',
-  styleUrl: './admin-posts.component.scss'
+  templateUrl: './admin-create-post.component.html',
+  styleUrl: './admin-create-post.component.scss'
 })
-export class AdminPostsComponent implements OnInit {
+export class AdminCreatePostComponent implements OnInit {
 
   categoryList: Category[] = [];
   postCreateDto: PostCreateDto = {
@@ -27,7 +28,7 @@ export class AdminPostsComponent implements OnInit {
     publishedAt: new Date()
   };
 
-  constructor(private categoryService: CategoryService, private postService: PostService, private toastrService: ToastrService) { }
+  constructor(private categoryService: CategoryService, private postService: PostService, private toastrService: ToastrService, private router: Router) { }
 
   ngOnInit() {
     this.categoryService.getAllCategories().subscribe((res) => {
@@ -40,7 +41,7 @@ export class AdminPostsComponent implements OnInit {
     if (form.valid) {
       this.postService.createPost(this.postCreateDto).subscribe({
         next: (response) => {
-          this.toastrService.success('Post created successfully');
+          this.router.navigate(['/admin/posts']).then(() => this.toastrService.success('Post created successfully'))
         },
         error: (error) => {
           this.toastrService.error('Error creating post', error.message);

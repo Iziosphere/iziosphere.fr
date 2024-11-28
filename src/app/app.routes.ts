@@ -11,9 +11,12 @@ import { ServicesComponent } from './pages/services/services.component';
 import { AboutComponent } from './pages/about/about.component';
 import { NewsComponent } from './pages/news/news.component';
 import { adminGuard } from './guards/admin-guard';
-import { AdminPostsComponent } from './pages/admin/admin-posts/admin-posts.component';
+import { AdminCreatePostComponent } from './pages/admin/admin-create-posts/admin-create-post.component';
 import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import {AdminPostsListComponent} from './pages/admin/admin-posts-list/admin-posts-list.component';
+import {AdminDashboardComponent} from './pages/admin/admin-dashboard/admin-dashboard.component';
+import {AdminRolesListComponent} from './pages/admin/admin-roles-list/admin-roles-list.component';
 
 export const routes: Routes = [
   {
@@ -116,9 +119,12 @@ export const routes: Routes = [
       keywords: 'admin, dashboard, control'
     },
     children: [
-      { path: 'posts', component: AdminPostsComponent },
+      { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'posts', component: AdminPostsListComponent },
+      { path: 'posts/create', component: AdminCreatePostComponent },
+      { path: 'roles', component: AdminRolesListComponent },
       { path: 'users', component: AdminUsersComponent },
-      { path: '', redirectTo: 'posts', pathMatch: 'full' } // Redirection par défaut
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' } // Redirection par défaut
     ]
   },
   {
