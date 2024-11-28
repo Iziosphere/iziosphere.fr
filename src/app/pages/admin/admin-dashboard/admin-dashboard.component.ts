@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 export class AdminDashboardComponent implements OnInit {
   todayVisitors: number = 0;
   sinceDate: string = '';
+  visitorChangePercentage: number = 0;
 
   chartData: { data: number[]; label: string; borderColor: string; backgroundColor: string; fill: boolean; }[] = [
     {
@@ -65,6 +66,7 @@ export class AdminDashboardComponent implements OnInit {
     this.loadTodayVisitors();
     this.setDefaultSinceDate();
     this.loadVisitsSince();
+    this.calculateVisitorComparisonBetween2Weeks()
   }
 
   setDefaultSinceDate(): void {
@@ -93,6 +95,37 @@ export class AdminDashboardComponent implements OnInit {
       },
     });
   }
+
+  calculateVisitorComparisonBetween2Weeks() {
+    const now = new Date();
+    let sinceDate = new Date(now.setDate(now.getDate() - 14)).toISOString().split('T')[0];
+    const halfwayDate = new Date(now.setDate(now.getDate() + 7)).toISOString().split('T')[0];
+
+    this.visitorService.getVisitsDailySince(sinceDate).subscribe({
+      next: (data) => {
+        let firstWeekCount = 0;
+        let secondWeekCount = 0;
+
+        data.dailyVisits.forEach((element) => {
+          const elementDate = new Date(element.date);
+          const halfway = new Date(halfwayDate);
+
+          if (elementDate < halfway) {
+            firstWeekCount += element.count;
+          } else {
+            secondWeekCount += element.count;
+          }
+        });
+
+        let increase = secondWeekCount - firstWeekCount;
+        this.visitorChangePercentage = (firstWeekCount > 0) ? (increase / firstWeekCount) * 100 : 0;
+      },
+      error: (err) => {
+        this.toastrService.error('Erreur lors de la récupération des visites :', err.message);
+      },
+    });
+  }
+
 
   updateChart(dailyVisits: { date: string; count: number }[]): void {
     const startDate = new Date(this.sinceDate);
