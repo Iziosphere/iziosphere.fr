@@ -2,6 +2,7 @@ export interface Post {
     id: number;
     title: string;
     content: string;
+    type: PostType;
     image: string;
     slug: string;
     publishedAt: Date;
