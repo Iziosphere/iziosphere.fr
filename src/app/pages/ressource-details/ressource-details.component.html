@@ -50,7 +50,7 @@
           <div
             class="col-md-5 hstack gap-3 position-relative justify-content-start justify-content-md-start text-start mb-3">
             @if (previousSlug) {
-              <a class="btn btn-lg btn-outline-primary border stretched-link" [routerLink]="['/news', previousSlug]"
+              <a class="btn btn-lg btn-outline-primary border stretched-link" [routerLink]="['/ressources', previousSlug]"
                  aria-label="Previous">
                 <i class="fas fa-chevron-left"></i>
               </a>
@@ -67,7 +67,7 @@
 
           <div class="d-none d-md-block col-md-2 text-center align-self-center">
             @if (nextSlug || previousSlug) {
-              <a class="link-secondary fs-3" href="#" [routerLink]="['/news']" aria-label="More">
+              <a class="link-secondary fs-3" href="#" [routerLink]="['/ressources']" aria-label="More">
                 <i class="fa-solid fa-ellipsis"></i>
               </a>
             }
